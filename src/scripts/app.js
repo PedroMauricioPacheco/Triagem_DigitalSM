@@ -1,5 +1,10 @@
 window.addEventListener("DOMContentLoaded", iniciarEventos);
 
+// Variáveis globais para o modal de assinatura
+let canvasAtualId = '';
+let canvasModal = null;
+let ctxModal = null;
+
 function iniciarEventos() {
     document.body.style.zoom = "80%";
 
@@ -37,6 +42,9 @@ function iniciarEventos() {
 
     // Inicializar canvas de assinaturas para TCLEs
     inicializarCanvasAssinaturas();
+    
+    // Inicializar modal de assinatura
+    inicializarModalAssinatura();
 }
 
 function preencherDataAtual() {
@@ -153,14 +161,65 @@ function limparMarcacoesMama() {
 // ==================== FUNÇÕES PARA CANVAS DE ASSINATURAS (TCLEs) ====================
 
 function inicializarCanvasAssinaturas() {
-    const canvasIds = ['canvasPaciente', 'canvasResponsavel', 'canvasMedico', 'canvasTestemunha1', 'canvasTestemunha2'];
+    const canvasIds = ['canvasPaciente', 'canvasResponsavel', 'canvasMedico'];
     
     canvasIds.forEach(id => {
         const canvas = document.getElementById(id);
         if (canvas) {
-            setupCanvasDrawing(canvas);
+            // Remover eventos antigos e apenas adicionar o click para abrir modal
+            canvas.style.cursor = 'pointer';
         }
     });
+}
+
+function limparCanvas(canvasId) {
+    const canvas = document.getElementById(canvasId);
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+}
+
+// ==================== FUNÇÕES DO MODAL DE ASSINATURA ====================
+
+function inicializarModalAssinatura() {
+    canvasModal = document.getElementById('canvasAssinaturaModal');
+    if (!canvasModal) return;
+    
+    ctxModal = canvasModal.getContext('2d');
+    setupCanvasDrawing(canvasModal);
+}
+
+function abrirModalAssinatura(canvasId, titulo) {
+    canvasAtualId = canvasId;
+    
+    // Atualizar título do modal
+    document.getElementById('modalAssinaturaLabel').textContent = titulo;
+    
+    // Limpar canvas do modal
+    if (ctxModal) {
+        ctxModal.clearRect(0, 0, canvasModal.width, canvasModal.height);
+        
+        // Configurar estilo
+        ctxModal.strokeStyle = '#000';
+        ctxModal.lineWidth = 3;
+        ctxModal.lineCap = 'round';
+        ctxModal.lineJoin = 'round';
+        
+        // Copiar assinatura existente se houver
+        const canvasOriginal = document.getElementById(canvasId);
+        if (canvasOriginal) {
+            const dadosImagem = canvasOriginal.toDataURL();
+            const img = new Image();
+            img.onload = function() {
+                ctxModal.drawImage(img, 0, 0, canvasModal.width, canvasModal.height);
+            };
+            img.src = dadosImagem;
+        }
+    }
+    
+    // Abrir modal
+    $('#modalAssinatura').modal('show');
 }
 
 function setupCanvasDrawing(canvas) {
@@ -171,24 +230,21 @@ function setupCanvasDrawing(canvas) {
 
     // Configurar estilo da linha
     ctx.strokeStyle = '#000';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 3;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
 
-    // Função para obter coordenadas do evento
     function getEventPos(e) {
         const rect = canvas.getBoundingClientRect();
         const scaleX = canvas.width / rect.width;
         const scaleY = canvas.height / rect.height;
         
         if (e.touches) {
-            // Touch event
             return {
                 x: (e.touches[0].clientX - rect.left) * scaleX,
                 y: (e.touches[0].clientY - rect.top) * scaleY
             };
         } else {
-            // Mouse event
             return {
                 x: (e.clientX - rect.left) * scaleX,
                 y: (e.clientY - rect.top) * scaleY
@@ -230,28 +286,40 @@ function setupCanvasDrawing(canvas) {
     canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('mouseout', stopDrawing);
 
-    // Eventos para touch (tablet/mobile)
+    // Eventos para touch
     canvas.addEventListener('touchstart', startDrawing, { passive: false });
     canvas.addEventListener('touchmove', draw, { passive: false });
     canvas.addEventListener('touchend', stopDrawing, { passive: false });
     canvas.addEventListener('touchcancel', stopDrawing, { passive: false });
-
-    // Prevenir scroll no canvas
-    canvas.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-    }, { passive: false });
-    
-    canvas.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-    }, { passive: false });
 }
 
-function limparCanvas(canvasId) {
-    const canvas = document.getElementById(canvasId);
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+function limparCanvasModal() {
+    if (ctxModal) {
+        ctxModal.clearRect(0, 0, canvasModal.width, canvasModal.height);
     }
+}
+
+function salvarAssinatura() {
+    if (!canvasModal || !canvasAtualId) return;
+    
+    // Obter dados da assinatura do modal
+    const dadosAssinatura = canvasModal.toDataURL();
+    
+    // Aplicar no canvas original
+    const canvasOriginal = document.getElementById(canvasAtualId);
+    if (canvasOriginal) {
+        const ctxOriginal = canvasOriginal.getContext('2d');
+        ctxOriginal.clearRect(0, 0, canvasOriginal.width, canvasOriginal.height);
+        
+        const img = new Image();
+        img.onload = function() {
+            ctxOriginal.drawImage(img, 0, 0, canvasOriginal.width, canvasOriginal.height);
+        };
+        img.src = dadosAssinatura;
+    }
+    
+    // Fechar modal
+    $('#modalAssinatura').modal('hide');
 }
 
 

@@ -76,13 +76,15 @@
             font-weight: bold;
             text-align: center;
         }
-        .canvas-assinatura {
+        .canvas-assinatura-pequeno {
             border: 2px solid #333;
             border-radius: 5px;
             margin: 10px 0;
             background: white;
             display: block;
-            cursor: crosshair;
+            cursor: pointer;
+            width: 100%;
+            height: 80px;
         }
         .btn-canvas {
             margin: 5px;
@@ -93,15 +95,40 @@
             text-align: center;
             margin: 20px 0;
         }
+        
+        /* Modal de assinatura */
+        .signature-modal .modal-dialog {
+            max-width: 90%;
+            height: 90%;
+        }
+        .signature-modal .modal-content {
+            height: 100%;
+        }
+        .signature-modal .modal-body {
+            padding: 20px;
+            height: calc(100% - 120px);
+        }
+        .canvas-assinatura-grande {
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            background: white;
+            cursor: crosshair;
+            width: 100%;
+            height: 400px;
+        }
+        
         @media print {
             .no-print { display: none !important; }
             body { font-size: 12px; }
-            .canvas-assinatura { border: 1px solid #333; }
+            .canvas-assinatura-pequeno { 
+                border: 1px solid #333; 
+                height: 60px;
+            }
         }
         @media (max-width: 768px) {
             .documento { padding: 10px; }
             .linha-assinatura { width: 150px; }
-            .canvas-assinatura { width: 100% !important; height: 80px !important; }
+            .canvas-assinatura-grande { height: 300px; }
         }
     </style>
 </head>
@@ -225,7 +252,7 @@
                                 <strong>Assinatura do (a) paciente</strong>
                             </div>
                             <div class="canvas-container">
-                                <canvas id="canvasPaciente" class="canvas-assinatura" width="100%" height="150" style="width: 100%;"></canvas>
+                                <canvas id="canvasPaciente" class="canvas-assinatura-pequeno" width="600" height="120" onclick="abrirModalAssinatura('canvasPaciente', 'Assinatura do Paciente')"></canvas>
                                 <div class="no-print">
                                     <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasPaciente')">
                                         <i class="fas fa-eraser"></i> Limpar
@@ -247,7 +274,7 @@
                                 <strong>Assinatura do (a) responsável pelo (a) paciente</strong>
                             </div>
                             <div class="canvas-container">
-                                <canvas id="canvasResponsavel" class="canvas-assinatura" width="100%" height="150" style="width: 100%;"></canvas>
+                                <canvas id="canvasResponsavel" class="canvas-assinatura-pequeno" width="600" height="120" onclick="abrirModalAssinatura('canvasResponsavel', 'Assinatura do Responsável')"></canvas>
                                 <div class="no-print">
                                     <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasResponsavel')">
                                         <i class="fas fa-eraser"></i> Limpar
@@ -269,7 +296,7 @@
                                 <strong>Assinatura do (a) médico (a)</strong>
                             </div>
                             <div class="canvas-container">
-                                <canvas id="canvasMedico" class="canvas-assinatura" width="100%" height="150" style="width: 100%;"></canvas>
+                                <canvas id="canvasMedico" class="canvas-assinatura-pequeno" width="600" height="120" onclick="abrirModalAssinatura('canvasMedico', 'Assinatura do Médico')"></canvas>
                                 <div class="no-print">
                                     <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasMedico')">
                                         <i class="fas fa-eraser"></i> Limpar
@@ -297,6 +324,33 @@
             </form>
         </div>
     </main>
+
+    <!-- Modal de Assinatura -->
+    <div class="modal fade signature-modal" id="modalAssinatura" tabindex="-1" role="dialog" aria-labelledby="modalAssinaturaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAssinaturaLabel">Assinatura Digital</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center text-muted mb-3">Assine na área abaixo:</p>
+                    <canvas id="canvasAssinaturaModal" class="canvas-assinatura-grande" width="800" height="400"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="limparCanvasModal()">
+                        <i class="fas fa-eraser"></i> Limpar
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="salvarAssinatura()">
+                        <i class="fas fa-save"></i> Salvar Assinatura
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="bg-dark text-white text-center py-3 no-print">
         <p class="mb-0">São Marcos Triagem &copy; 2025. Todos os direitos reservados.</p>
