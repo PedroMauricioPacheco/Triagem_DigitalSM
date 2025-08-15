@@ -1,0 +1,610 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+body {
+    background-color: #f8f9fa;
+}
+/*Estilização do Index */
+body.index-page {
+    background: linear-gradient(135deg, #e8f5e9 0%, #f5f5f5 100%);
+    min-height: 100vh;
+    }
+.index-page .main-content {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
+    padding: 48px 32px 32px 32px;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    animation: fadeIn 1s;
+}
+ @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.index-page .logo-header {
+    width: 48px;
+    height: 48px;
+    }
+.index-page .footer {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    border-radius: 18px 18px 0 0;
+    background-color: #2b4938;
+    color: white;
+    text-align: center;
+    padding: 16px 0px 10px 0;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+    z-index: 10;
+}
+.index-page .display-4 {
+    color: #2b4938;
+    text-shadow: 0 2px 8px #e8f5e9;
+}
+.index-page .lead {
+    color: #4e5d52;
+}
+@media (max-width: 767px) {
+    .index-page .main-content {
+        padding: 24px 8px 16px 8px;
+        margin-top: 18px;
+        margin-bottom: 80px;
+}
+    .index-page .main-btn-group .btn {
+        min-width: 140px;
+        font-size: 0.95em;
+        margin: 0 4px 12px 4px;
+        padding: 10px 8px;
+}
+.index-page .logo-header {
+        width: 36px;
+        height: 36px;
+}
+.index-page .display-4 {
+    font-size: 2rem;
+}
+.index-page .footer {
+        font-size: 0.95rem;
+        padding: 10px 0 8px 0;
+}
+        }
+.navbar {
+    background-color: #2b4938;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #2b4938 !important;
+}
+
+.navbar-brand:hover, .navbar-nav .nav-link:hover {
+    color: #ffffff !important;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+h1 {
+    color: #2b4938;
+}
+
+.btn-primary {
+    background-color: #2b4938;
+    border-color: #2b4938;
+}
+
+.btn-primary:hover {
+    background-color: #2b4938;
+    border-color: #2b4938;
+}
+
+.footer {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    border-radius: 18px 18px 0 0;
+    background-color: #2b4938;
+    color: white;
+    text-align: center;
+    padding: 16px 0px 10px 0;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+    z-index: 10;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: 1.1em;
+    height: 1.1em;
+    accent-color: #2b4938;
+    border: 1.5px solid #ced4da;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left: 4px;
+    margin-right: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    background-color: #fff;
+    position: relative;
+    top: 0.1em;
+}
+
+/* Checkbox quadrado */
+input[type="checkbox"] {
+    border-radius: 6px;
+}
+
+label {
+    vertical-align: middle;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+.form-control-inline {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    margin-left: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    background-color: #fff;
+}
+.cabeçalho{
+    background-color: #2b4938;
+    color: #2b4938;
+}
+input[type="radio"] {
+    position: relative;
+    top: -1.5px;      /* Sobe levemente o círculo */
+    margin-bottom: 2px; /* Espaço abaixo do radio */
+}
+
+input[type="checkbox"] {
+    position: relative;
+    top: -1.5px; /* Sobe levemente o checkbox para alinhar com o texto */
+    margin-left: 8px;
+    margin-right: 5px;
+}
+/* Espaço entre radios e input text na mesma linha */
+.card-body input[type="radio"] {
+    margin-right: 10px;
+    margin-left: 8px;
+}
+
+.card-body input[type="text"], 
+.card-body input.form-control-inline {
+    margin-left: 16px !important;
+}
+.cabeçalho,
+.cabeçalho .navbar-brand,
+.cabeçalho .nav-link {
+    color: #fff !important;
+}
+
+/* Modern header styles */
+.cabeçalho {
+    background: linear-gradient(90deg, #2b4938 80%, #3e6b4b 100%);
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(43, 73, 56, 0.08);
+    border-radius: 0 0 18px 18px;
+    padding: 0;
+}
+
+.custom-navbar {
+    background: transparent !important;
+    padding: 0.5rem 2rem;
+}
+
+.logo-header {
+    width: 15%;
+    height: 10%;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(43, 73, 56, 0.10);
+    margin-right: 12px;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff !important;
+    letter-spacing: 1px;
+}
+
+.custom-link {
+    color: #fff !important;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-left: 1.5rem;
+    transition: color 0.2s, background 0.2s, border-radius 0.2s;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.custom-link:hover, .custom-link:focus {
+    color: #2b4938 !important;
+    background: #fff;
+    text-decoration: none;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.main-content {
+    min-height: 70vh;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.text-header {
+    color: #2b4938;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.custom-btn {
+    min-width: 320px;
+    background: #2b4938 !important;
+    border: none !important;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(43, 73, 56, 0.10);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+/* Botão: destaque maior no hover */
+.custom-btn:hover, .custom-btn:focus {
+    background: #fff !important;
+    color: #2b4938 !important;
+    box-shadow: 0 6px 24px rgba(43, 73, 56, 0.25);
+    border: 2px solid #2b4938 !important;
+    text-decoration: none;
+    transform: scale(1.04);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.custom-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(62, 107, 75, 0.25);
+}
+
+.custom-btn:active {
+    transform: scale(0.98);
+}
+
+.main-btn-group {
+    gap: 32px;
+}
+.footer {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    border-radius: 18px 18px 0 0;
+    background-color: #2b4938;
+    color: white;
+    text-align: center;
+    padding: 16px 0px 10px 0;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+    z-index: 10;
+}
+
+/* Aumenta o header e melhora o logo */
+.cabeçalho {
+    min-height: 80px;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, #2b4938 80%, #3e6b4b 100%);
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(43, 73, 56, 0.08);
+    border-radius: 0 0 18px 18px;
+}
+
+.logo-header {
+    width: 64px !important;
+    height: 64px !important;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(43, 73, 56, 0.10);
+    margin-right: 16px;
+}
+
+.brand-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #fff !important;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 767px) {
+    .cabeçalho {
+        min-height: 56px;
+        padding: 0.5rem 0.5rem;
+    }
+    .logo-header {
+        width: 40px !important;
+        height: 40px !important;
+        margin-right: 10px;
+    }
+    .brand-title {
+        font-size: 1.15rem;
+    }
+}
+
+/* Aumenta um pouco todas as fontes do sistema, exceto input text */
+body, html, button, select, textarea, label, .navbar, .navbar-brand, .navbar-nav .nav-link, .brand-title, .custom-link, .cabeçalho, .form-check-label, .card-header, .card-body, .form-group, .form-check,p {
+    font-size: 1.08em !important;
+    font-family: 'Poppins', Arial, sans-serif !important;
+}
+
+/* Mantém o input text com fonte padrão */
+input[type="text"], input[type="number"], input[type="date"], input[type="email"], input[type="password"], textarea.form-control {
+    font-size: 1em !important;
+}
+
+/* Espaçamento vertical entre inputs text */
+input[type="text"], input[type="number"], input[type="date"], textarea.form-control {
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+}
+
+/* Responsivo */
+@media (max-width: 767px) {
+    .custom-navbar {
+        padding: 0.5rem 1rem;
+    }
+    .brand-title {
+        font-size: 1.1rem;
+    }
+    .logo-header {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* Sumir botão na geração de PDF */
+@media print {
+    .btn-success,
+    .btn,
+    button,
+    input[type="button"],
+    input[type="submit"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+    }
+}
+@media print{
+    .btn.btn-outline-danger.btn-sm{
+        display: none;
+    }
+}
+@media print{
+    .cabeçalho{
+        display: none;
+    }
+}
+@media print {
+    .form-row,
+    .d-flex,
+    .row {
+        display: flex !important;
+        flex-wrap: wrap !important; /* <-- alterado de nowrap para wrap */
+    }
+    .form-group,
+    .col-md-4,
+    .col-md-3 {
+        flex: 1 1 0 !important;
+        max-width: 100% !important;
+        margin-bottom: 0 !important;
+    }
+    label, span {
+        white-space: nowrap;
+    }
+    input, select {
+        min-width: 0 !important;
+        width: auto !important;
+        display: inline-block !important;
+    }
+}
+@media print {
+    #nomePaciente {
+        width: 60vw !important;
+        min-width: 350px !important;
+        font-size: 1.2em !important;
+        display: inline-block !important;
+    }
+}
+body, html, input, button, select, textarea, label, .navbar, .navbar-brand, .navbar-nav .nav-link, .brand-title, .custom-link, .cabeçalho {
+    font-family: 'Poppins', Arial, sans-serif !important;
+}
+@media print {
+    input::placeholder,
+    textarea::placeholder {
+        color: transparent !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+}
+/* Espaçamento maior entre linhas só para o formulário de Ressonância de Mama */
+body[src*="Triagem_Ressonancia_Mama.html"] .form-group,
+body[src*="Triagem_Ressonancia_Mama.html"] label,
+body[src*="Triagem_Ressonancia_Mama.html"] .form-control-inline,
+body[src*="Triagem_Ressonancia_Mama.html"] .form-check,
+body[src*="Triagem_Ressonancia_Mama.html"] .form-row {
+    margin-bottom: 1.1rem !important;
+    line-height: 1.8 !important;
+}
+
+/* Inputs radio/checkbox: destaque maior no hover e checked */
+input[type="radio"]:hover,
+input[type="checkbox"]:hover {
+    box-shadow: 0 0 0 4px rgba(62, 107, 75, 0.18);
+    border-color: #3e6b4b;
+    outline: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+    box-shadow: 0 0 0 4px rgba(43, 73, 56, 0.22);
+    border-color: #2b4938;
+    outline: none;
+}
+
+.navbar .nav-link.custom-link:hover,
+.navbar .nav-link.custom-link:focus {
+    color: #2b4938 !important;
+    background: #fff !important;
+    text-decoration: none;
+    border: 2px solid #2b4938 !important;
+    box-shadow: 0 6px 24px rgba(43, 73, 56, 0.25);
+    border-radius: 8px;
+    transform: scale(1.04);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+}
+@media print {
+    .card {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+}
+
+/* Animação igual para todos os botões */
+button,
+.btn,
+.custom-btn,
+.btn-success,
+.btn-primary,
+.btn-outline-danger,
+input[type="button"],
+input[type="submit"] {
+    transition: 
+        background 0.2s,
+        color 0.2s,
+        box-shadow 0.2s,
+        border 0.2s,
+        transform 0.2s;
+    box-shadow: 0 2px 8px rgba(43, 73, 56, 0.10);
+    border-radius: 12px;
+}
+
+button:hover,
+.btn:hover,
+.custom-btn:hover,
+.btn-success:hover,
+.btn-primary:hover,
+.btn-outline-danger:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+button:focus,
+.btn:focus,
+.custom-btn:focus,
+.btn-success:focus,
+.btn-primary:focus,
+.btn-outline-danger:focus,
+input[type="button"]:focus,
+input[type="submit"]:focus {
+    background: #fff !important;
+    color: #2b4938 !important;
+    box-shadow: 0 6px 24px rgba(43, 73, 56, 0.25);
+    border: 2px solid #2b4938 !important;
+    text-decoration: none;
+    transform: scale(1.04);
+    outline: none;
+}
+
+button:active,
+.btn:active,
+.custom-btn:active,
+.btn-success:active,
+.btn-primary:active,
+.btn-outline-danger:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Formatação do select igual aos outros inputs */
+select,
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    background-color: #fff;
+    font-size: 1em !important;
+    font-family: 'Poppins', Arial, sans-serif !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+select:focus,
+.form-control:focus {
+    border-color: #2b4938;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(43, 73, 56, 0.25);
+}
+
+select:hover,
+.form-control:hover {
+    border-color: #3e6b4b;
+}
+
+/* Espaçamento vertical entre selects */
+select {
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+}
+
+/* Estilo específico para select inline */
+select.form-control-inline {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    margin-left: 8px;
+    width: auto !important;
+    min-width: 120px;
+}

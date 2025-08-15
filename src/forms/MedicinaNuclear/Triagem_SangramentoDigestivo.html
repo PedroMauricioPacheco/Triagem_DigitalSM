@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de Pesquisa de Sangramento Digestivo – REV.00</title>
+    <link rel="icon" type="image/png" href="../../Imagens/IconeSaoMarcos.jpeg">
+    <script src="../../bootstrap-4.5.3-dist/jquery-3.7.1.slim.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fontawesome-free-7.0.0-web/css/all.min.css">
+    <script src="../../bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script src="../../scripts/app.js"></script>
+    <style>
+        @media (max-width: 767px) {
+            .form-row > .form-group {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .card-header {
+                font-size: 1.1rem;
+            }
+            .form-control-inline {
+                width: 100% !important;
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="cabeçalho shadow-sm">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <a class="navbar-brand d-flex align-items-center" href="../../../index.html">
+                <img src="../../Imagens/IconeSaoMarcos.jpeg" alt="Logo São Marcos" class="logo-header mr-3">
+                <span class="brand-title ml-2">São Marcos Triagem</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../Pages/MedicinaNuclear.html"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../../index.html">Início</a>
+                    </li>
+                    <li>
+                        <a class="nav-link custom-link" href="../../Pages/DuvidasSugestoes.html">Dúvidas ou sugestões</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-5">
+            <h1 class="text-center mb-3">QUESTIONÁRIO DE PESQUISA DE SANGRAMENTO DIGESTIVO – REV.00</h1>
+            <form>
+                <!-- Card 1: Informações do paciente -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Informações do paciente</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="nomePaciente">Paciente:</label>
+                            <input type="text" class="form-control" id="nomePaciente" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="sexoPaciente">Sexo</label>
+                                <select class="form-control" id="sexoPaciente" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="idadePaciente">Idade</label>
+                                <input type="number" class="form-control" id="idadePaciente" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="pesoPaciente">Peso (kg)</label>
+                                <input type="number" class="form-control" id="pesoPaciente" step="0.1">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="alturaPaciente">Altura (cm)</label>
+                                <input type="number" class="form-control" id="alturaPaciente" step="0.1">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="dataTriagem">Data do Exame</label>
+                                <input type="date" class="form-control" id="dataTriagem" required>
+                            </div>
+                        </div>
+                        <div class="alert alert-info mt-2" role="alert">
+                            Para melhor atendê-lo e garantir a segurança na realização do seu exame, solicitamos o preenchimento dos dados abaixo.<br>
+                            O nível de radiação do material usado no exame é relativamente baixo (calculado pelo peso do paciente) e não provoca reação alérgica.
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2: Motivo do exame -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Motivo de realização do exame</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="motivoSangramentoFezes">
+                            <label class="form-check-label" for="motivoSangramentoFezes">Apresentou sangramento nas fezes</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Quantos episódios?" style="width: 30%;">
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 30%;">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="motivoAnemia">
+                            <label class="form-check-label" for="motivoAnemia">Anemia</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 50%;">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="motivoSangueOculto">
+                            <label class="form-check-label" for="motivoSangueOculto">Presença de sangue oculto nas fezes</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3: Patologias/Fatores associados - Parte 1 -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Patologias/Fatores associados - Parte 1</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <span>TEM DIVERTÍCULOS COLÔNICOS:</span>
+                            <label><input type="radio" name="diverticulosColonicos" value="Nao" required> Não</label>
+                            <label style="margin-left:16px;"><input type="radio" name="diverticulosColonicos" value="Sim" required> Sim</label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>TEM HEMORROIDAS:</span>
+                            <label><input type="radio" name="hemorroidas" value="Nao" required> Não</label>
+                            <label style="margin-left:16px;"><input type="radio" name="hemorroidas" value="Sim" required> Sim</label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>TEM DOENÇA INFLAMATÓRIA INTESTINAL:</span>
+                            <label><input type="radio" name="doencaInflamatoria" value="Nao" required> Não</label>
+                            <label style="margin-left:16px;"><input type="radio" name="doencaInflamatoria" value="Sim" required> Sim</label>
+                            <div class="mt-2">
+                                <span>Qual?</span>
+                                <label><input type="radio" name="tipoDoencaInflamatoria" value="DoencaCrohn"> Doença de Crohn</label>
+                                <label style="margin-left:16px;"><input type="radio" name="tipoDoencaInflamatoria" value="ColiteUlcerativa"> Colite Ulcerativa</label>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>TEM DIAGNÓSTICO DE CÂNCER:</span>
+                            <label><input type="radio" name="diagnosticoCancer" value="Nao" required> Não</label>
+                            <label style="margin-left:16px;"><input type="radio" name="diagnosticoCancer" value="Sim" required> Sim</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Qual?" style="width: 40%;">
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 40%;">
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4: Patologias/Fatores associados - Parte 2 -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Patologias/Fatores associados - Parte 2</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <span>FEZ CIRURGIA ABDOMINAL:</span>
+                            <label><input type="radio" name="cirurgiaAbdominal" value="Nao" required> Não</label>
+                            <label style="margin-left:16px;"><input type="radio" name="cirurgiaAbdominal" value="Sim" required> Sim</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Qual?" style="width: 40%;">
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 40%;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>FEZ OU FAZ USO DE SULFATO FERROSO:</span>
+                            <label><input type="radio" name="sulfatoFerroso" value="Nao" required> Não</label>
+                            <label style="margin-left:16px;"><input type="radio" name="sulfatoFerroso" value="Sim" required> Sim</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 50%;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>REALIZOU TRANSFUSÃO SANGUÍNEA:</span>
+                            <label><input type="radio" name="transfusaoSanguinea" value="Nao" required> Não</label>
+                            <label style="margin-left:16px;"><input type="radio" name="transfusaoSanguinea" value="Sim" required> Sim</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 50%;">
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5: Exames laboratoriais -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Exames laboratoriais</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="hemoglobina">HEMOGLOBINA:</label>
+                            <input type="text" class="form-control-inline" id="hemoglobina" style="width: 40%;">
+                            <label class="ml-2">Data:</label>
+                            <input type="date" class="form-control-inline" style="width: 30%;">
+                        </div>
+                        <div class="form-group">
+                            <label for="hematocrito">HEMATÓCRITO:</label>
+                            <input type="text" class="form-control-inline" id="hematocrito" style="width: 40%;">
+                            <label class="ml-2">Data:</label>
+                            <input type="date" class="form-control-inline" style="width: 30%;">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="medicamentosEmUso">Medicamentos em uso:</label>
+                            <textarea class="form-control" id="medicamentosEmUso" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 6: Estudos prévios -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Estudos prévios</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <span>JÁ FEZ ESSE EXAME ANTERIORMENTE?</span>
+                            <label><input type="radio" name="exameAnterior" value="Sim"> Sim</label>
+                            <label style="margin-left:16px;"><input type="radio" name="exameAnterior" value="Nao"> Não</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 40%;">
+                            <br>
+                            <span class="ml-2">NO IMEB?</span>
+                            <label><input type="radio" name="exameAnteriorImeb" value="Sim"> Sim</label>
+                            <label style="margin-left:16px;"><input type="radio" name="exameAnteriorImeb" value="Nao"> Não</label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>JÁ REALIZOU COLONOSCOPIA?</span>
+                            <label><input type="radio" name="colonoscopia" value="Sim"> Sim</label>
+                            <label style="margin-left:16px;"><input type="radio" name="colonoscopia" value="Nao"> Não</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 45%;">
+                            <br>
+                            <span class="ml-2">NO IMEB?</span>
+                            <label><input type="radio" name="colonoscopiaImeb" value="Sim"> Sim</label>
+                            <label style="margin-left:16px;"><input type="radio" name="colonoscopiaImeb" value="Nao"> Não</label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>JÁ REALIZOU ENDOSCOPIA?</span>
+                            <label><input type="radio" name="endoscopia" value="Sim"> Sim</label>
+                            <label style="margin-left:16px;"><input type="radio" name="endoscopia" value="Nao"> Não</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 47%;">
+                            <br>
+                            <span class="ml-2">NO IMEB?</span>
+                            <label><input type="radio" name="endoscopiaImeb" value="Sim"> Sim</label>
+                            <label style="margin-left:16px;"><input type="radio" name="endoscopiaImeb" value="Nao"> Não</label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>ALGUM OUTRO EXAME PARA DETECÇÃO DO FOCO DO SANGRAMENTO?</span>
+                            <label><input type="radio" name="outroExameSangramento" value="Sim"> Sim</label>
+                            <label style="margin-left:16px;"><input type="radio" name="outroExameSangramento" value="Nao"> Não</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            <br>
+                            <span class="ml-2">NO IMEB?</span>
+                            <label><input type="radio" name="outroExameSangramentoImeb" value="Sim"> Sim</label>
+                            <label style="margin-left:16px;"><input type="radio" name="outroExameSangramentoImeb" value="Nao"> Não</label>
+                        </div>
+                        <div class="alert alert-warning mt-3" role="alert">
+                            Favor fornecer estudos prévios para que possamos tirar cópias dos laudos, isso poderá ajudar na interpretação das imagens.
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="text-center mb-4">
+                    <span id="AlertaGeracao"></span>
+                    <button id="gerarPDF" onclick="gerarPDF()" class="btn btn-success">Gerar PDF</button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">São Marcos Triagem &copy; 2025. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

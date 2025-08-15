@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Triagem</title>
+    <link rel="icon" type="image/png" href="../../Imagens/IconeSaoMarcos.jpeg">
+    <script src="../../bootstrap-4.5.3-dist/jquery-3.7.1.slim.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fontawesome-free-7.0.0-web/css/all.min.css">
+    <script src="../../bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script src="../../scripts/app.js"></script>
+    <style>
+        /* Apenas corrigir problemas de corte na impressão */
+        @media print {
+            .no-print { 
+                display: none !important; 
+            }
+            
+            /* Evitar cortes nos elementos */
+            .form-group {
+                page-break-inside: avoid;
+            }
+            
+            .card {
+                page-break-inside: avoid;
+            }
+            
+            .canvas-container {
+                page-break-inside: avoid;
+            }
+            
+            /* Garantir que inputs não sejam cortados */
+            input, textarea, select {
+                box-sizing: border-box !important;
+                max-width: 100% !important;
+            }
+            
+            /* Remover barrinha de resize do textarea */
+            textarea {
+                resize: none !important;
+            }
+            
+            /* Manter aparência dos checkbox e radio */
+            input[type="checkbox"], input[type="radio"] {
+                -webkit-appearance: checkbox !important;
+                -moz-appearance: checkbox !important;
+                appearance: checkbox !important;
+            }
+            
+            input[type="radio"] {
+                -webkit-appearance: radio !important;
+                -moz-appearance: radio !important;
+                appearance: radio !important;
+            }
+        }
+        
+        /* Estilos para tela mantidos */
+        .form-control-inline {
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            padding: 5px 8px;
+            margin: 2px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .checkbox-group {
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .radio-group label {
+            margin-right: 20px;
+            display: inline-block;
+        }
+        
+        .canvas-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="cabeçalho shadow-sm no-print">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <a class="navbar-brand d-flex align-items-center" href="../../../index.html">
+                <img src="../../Imagens/IconeSaoMarcos.jpeg" alt="Logo São Marcos" class="logo-header mr-3">
+                <span class="brand-title ml-2">São Marcos Triagem</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: #fff;"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../Pages/Mamografias.html"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../../index.html">Início</a>
+                    </li>
+                    <li>
+                        <a class="nav-link custom-link" href="../../Pages/DuvidasSugestoes.html">Dúvidas ou sugestões</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-5">
+            <h1 class="text-center">Formulário de Triagem</h1>
+            <h4 class="text-center text-lime mb-4">Protocolo para exame de Mamografia</h4>
+            
+            <!-- Informações padrão -->
+            <div class="card mb-4 border-success">
+                <div class="card-header bg-lime text-black">
+                    <strong>Informações padrão</strong>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="nomePaciente"><strong>Nome do paciente:</strong></label>
+                        <input type="text" class="form-control-inline" id="nomePaciente" style="width: 70%;" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="idadePaciente"><strong>Idade:</strong></label>
+                        <input type="number" class="form-control-inline" id="idadePaciente" style="width: 100px;" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataTriagem"><strong>Data:</strong></label>
+                        <input type="date" class="form-control-inline" id="dataTriagem" required>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Protocolos de Mamografia -->
+            <form id="ProtocoloMamografiaForm">
+                <div class="form-group">
+                    <label><strong>Tem câncer de mama na família?</strong></label><br>
+                    <div class="radio-group">
+                        <label><input type="radio" name="CancerDeMamaFamilia" value="Sim" required> Sim</label>
+                        <label><input type="radio" name="CancerDeMamaFamilia" value="Não" required> Não</label>
+                    </div>
+                    <label>Mais detalhes (se necessário):</label>
+                    <textarea class="form-control" id="detalhesCancerFamilia" rows="2"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label><strong>Já fez cirurgia na mama?</strong></label><br>
+                    <div class="radio-group">
+                        <label><input type="radio" name="FezCirurgiaNaMama" value="Sim" required> Sim</label>
+                        <label><input type="radio" name="FezCirurgiaNaMama" value="Não" required> Não</label>
+                    </div>
+                    <label>Mais detalhes (se necessário):</label>
+                    <textarea class="form-control" id="detalhesCirurgiaMama" rows="2"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label><strong>Já fez biópsia?</strong></label><br>
+                    <div class="radio-group">
+                        <label><input type="radio" name="FezBiopsia" value="Sim"> Sim</label>
+                        <label><input type="radio" name="FezBiopsia" value="Nao"> Não</label>
+                    </div>
+                    <label>Mais detalhes (se necessário):</label>
+                    <textarea class="form-control" id="detalhesBiopsia" rows="2"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label><strong>Por que está fazendo o exame?</strong></label>
+                    <textarea class="form-control" id="motivoExame" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="TemDor"> Tem dor
+                        </label>
+                        <textarea class="form-control" id="temDor" name="temDor" rows="2"></textarea>
+                        <label>
+                            <input type="checkbox" name="CarocoOuNodulo"> Caroço ou nódulo
+                        </label>
+                            <textarea class="form-control" id="carocoNodulo" rows="2"></textarea>
+                        
+                        <label>
+                            <input type="checkbox" name="TemSecrecao"> Tem secreção
+                        </label>
+                            <textarea class="form-control" id="secrecao" rows="2"></textarea>
+                    </div>
+                    
+                    <div class="canvas-container">
+                        <div style="position: relative; display: inline-block;">
+                            <img src="../../Imagens/ImagemSelecionaMamografia.png" alt="Desenho das mamas"
+                                 style="width: 300px; height: 200px; pointer-events: none;">
+                            <canvas id="canvasMama" width="300" height="200"
+                                    style="position: absolute; left: 0; top: 0; z-index: 2;"></canvas>
+                        </div>
+                        <div class="text-center mt-2 no-print">
+                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="limparMarcacoesMama()">
+                                Limpar marcações
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label><strong>Já fez mamografia?</strong></label><br>
+                    <div class="radio-group">
+                        <label><input type="radio" name="FezMamografia" value="Sim"> Sim</label>
+                        <label><input type="radio" name="FezMamografia" value="Nao"> Não</label>
+                    </div>
+                    <label>Se sim, quando?</label>
+                    <input type="text" class="form-control-inline" style="width: 200px;">
+                </div>
+                
+                <div class="form-group">
+                    <label><strong>Tem filhos?</strong></label><br>
+                    <div class="radio-group">
+                        <label><input type="radio" name="TemFilhos" value="Sim"> Sim</label>
+                        <label><input type="radio" name="TemFilhos" value="Nao"> Não</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label><strong>Amamentou?</strong></label><br>
+                    <div class="radio-group">
+                        <label><input type="radio" name="Amamentou" value="Sim"> Sim</label>
+                        <label><input type="radio" name="Amamentou" value="Nao"> Não</label>
+                    </div>
+                    <label>Mais detalhes (se necessário):</label>
+                    <textarea class="form-control" id="amamentou" rows="2"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label><strong>Última Menstruação:</strong></label>
+                    <input type="date" class="form-control-inline" id="UltimaMenstruacao">
+                    <label><input type="checkbox"> Não lembra</label>
+                </div>
+                
+                <div class="form-group">
+                    <label><strong>Está no período pós-menopausa?</strong></label><br>
+                    <div class="radio-group">
+                        <label><input type="radio" name="IdadeMenopausa" value="Nao"> Não</label>
+                        <label><input type="radio" name="IdadeMenopausa" value="Sim"> Sim</label>
+                        <label><input type="radio" name="IdadeMenopausa" value="NuncaMenstruou"> Nunca Menstruou</label>
+                    </div>
+                    <label>Caso sim, existe algum motivo específico?</label>
+                    <input type="text" class="form-control-inline" style="width: 60%;"><br>
+                    <label>Com qual idade?</label>
+                    <input type="number" class="form-control-inline" style="width: 80px;">
+                    <label><input type="checkbox"> Não Lembra</label>
+                </div>
+                
+                <div class="form-group">
+                    <label><strong>Usa hormônio/remédio para tratar menopausa?</strong></label><br>
+                    <div class="radio-group">
+                        <label><input type="radio" name="UsaHormonio" value="Sim"> Sim</label>
+                        <label><input type="radio" name="UsaHormonio" value="Nao"> Não</label>
+                        <label><input type="radio" name="UsaHormonio" value="NaoLembra"> Não lembra</label>
+                    </div>
+                    <label>Mais informações:</label>
+                    <input type="text" class="form-control" id="MaisInformacoesHormonio">
+                </div>
+                
+                <div class="form-group">
+                    <label><strong>Você está grávida?</strong></label><br>
+                    <div class="radio-group">
+                        <label><input type="radio" name="Gravida" value="Sim"> Sim</label>
+                        <label><input type="radio" name="Gravida" value="Nao"> Não</label>
+                        <label><input type="radio" name="Gravida" value="NaoSabe"> Não sabe</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><strong>Observações Gerais</strong></label>
+                    <br>
+                    <textarea class="form-control" name="observacoesGerais" id="observacoesGerais" rows="3"></textarea>
+                </div>
+            </form>
+            
+            <div class="text-center mb-4 no-print">
+                <span id="AlertaGeracao"></span>
+                <button id="gerarPDF" type="button" onclick="gerarPDF(event)" class="btn btn-success">Gerar PDF</button>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-dark text-white text-center py-3 no-print">
+        <p class="mb-0">São Marcos Triagem &copy; 2025. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

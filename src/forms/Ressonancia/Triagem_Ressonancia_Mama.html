@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Triagem</title>
+    <link rel="icon" type="image/png" href="../../Imagens/IconeSaoMarcos.jpeg">
+    <script src="../../bootstrap-4.5.3-dist/jquery-3.7.1.slim.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fontawesome-free-7.0.0-web/css/all.min.css">
+    <script src="../../bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script src="../../scripts/app.js"></script>
+</head>
+<body>
+    <header class="cabeçalho shadow-sm">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <a class="navbar-brand d-flex align-items-center" href="../../../index.html">
+<img src="../../Imagens/IconeSaoMarcos.jpeg" alt="Logo São Marcos" class="logo-header mr-3">                <span class="brand-title ml-2">São Marcos Triagem</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: #fff;"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../Pages/Ressonancia.html"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../../index.html">Início</a>
+                    </li>
+                    <li>
+                        <a class="nav-link custom-link" href="../../Pages/DuvidasSugestoes.html">Dúvidas ou sugestões</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+    <div class="container mt-5">
+        <h1 class="text-center">Formulário de Triagem</h1>
+        <h4 class="text-center text-lime mb-4">Questionário para exame de ressonância magnética de mamas</h4>
+        <!-- Informações padrão -->
+        <div class="card mb-4 border-success">
+            <div class="card-header bg-lime text-black">
+                <strong>Informações padrão</strong>
+            </div>
+            <div class="card-body d-flex align-items-start">
+                <div style="flex: 1;">
+                    <div class="form-group">
+                        <label for="nomePaciente">Nome do paciente</label>
+                        <input type="text" class="form-control" id="nomePaciente" style="width: 100%;" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="idade">Idade</label>
+                        <input type="number" class="form-control" id="idadePaciente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataTriagem">Data</label>
+                        <input type="date" autocomplete="on" class="form-control" id="dataTriagem" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Formulário de Ressonância Magnética de Mamas -->
+        <form id="ressonanciaMagneticaMamasForm">
+            <div class="form-group">
+                <label for="motivoExame"><strong>Qual o motivo desse exame?</strong></label><br>
+                <div class="d-flex align-items-center">
+                    <div style="flex: 1;">
+                        <label>
+                            <input type="radio" id="motivoExame" name="motivoExame" value="Rotina" required>
+                            Nódulo palpável (localizar no desenho ao lado)
+                        </label><br>
+                        <label>
+                            <input type="radio" id="motivoExame" name="motivoExame" value="Sintomas" required>
+                            Avaliação de alteração vista na mamografia/ecografia
+                        </label><br>
+                        <label>
+                            <input type="radio" id="motivoExame" name="motivoExame" value="Seguimento" required>
+                            Acompanhamento por alto risco de câncer de mama (familiar)
+                        </label><br>
+                        <label>
+                            <input type="radio" id="motivoExame" name="motivoExame" value="Seguimento" required>
+                            Pré-operatório de tumor de mama
+                        </label><br>
+                        <label>
+                            <input type="radio" id="motivoExame" name="motivoExame" value="Seguimento" required>
+                            Acompanhamento após tumor de mama
+                        </label><br>
+                        <label>
+                            <input type="radio" id="motivoExame" name="motivoExame" value="Seguimento" required>
+                            Avaliação dos implantes de silicone (ruptura/contratura)
+                        </label><br>
+                        <label>
+                            <input type="radio" id="motivoExame" name="motivoExame" value="Seguimento" required>
+                            Outro. Qual
+                        </label>
+                        <input type="text" class="form-control-inline" style="width: 40%;" placeholder="Qual?"><br>
+                    </div>
+                    <div style="flex: 0 0 370px; margin-left: 10px;">
+                        <div style="position: relative; width: 300px; height: 200px; margin-bottom: 10px;">
+                            <img src="../../Imagens/mama.png" alt="Desenho das mamas"
+                                 style="width: 300px; height: 200px; position: absolute; left: 0; top: 0; pointer-events: none;">
+                            <canvas id="canvasMama"
+                                    width="300" height="200"
+                                    style="position: absolute; left: 0; top: 0; z-index: 2;"></canvas>
+                        </div>
+                        <button type="button" class="btn btn-outline-danger btn-sm" id="limparCanvasMama" style="margin-bottom: 20px;" onclick="limparMarcacoesMama()">
+                            Limpar marcações
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="historicoCancer"><strong>Possuí histórico de câncer de mama na família?</strong></label><br>
+                <label>
+                    <input type="radio" id="historicoCancer" name="historicoCancer" value="Sim" required> Sim
+                </label>
+                <label>
+                    <input type="radio" id="historicoCancer" name="historicoCancer" value="Não" required> Não
+                </label>
+                <input type="text" class="form-control-inline" id="detalhesHistorico" placeholder="Se sim, quem?">
+            </div>
+            <div class="form-group">
+                <label for="cicloMenstrual"><strong>Ciclo menstrual:</strong></label><br>
+                Data do último período:
+                <input type="date" class="form-control-inline" id="dataUltimoPeriodo" placeholder="Data do último período"><br>
+                <label>
+                <input type="radio" id="cicloMenstrual" name="cicloMenstrual" value="Ausente"> Ausente
+            </div>
+            <div class="form-group">
+                
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    </label>
+                    Há quanto tempo?
+                    <input type="text" class="form-control-inline" id="tempoAusente">
+                    Motivo:
+                    <label>
+                        <input type="radio" id="motivoMenstruacaoAusente" name="motivoMenstruacaoAusente" value="Anticoncepcional"> Anticoncepcional
+                    </label>
+                    <label>
+                        <input type="radio" id="motivoMenstruacaoAusente" name="motivoMenstruacaoAusente" value="Mirena" > Mirena
+                    </label>
+                    <label>
+                        <input type="radio" id="motivoMenstruacaoAusente" name="motivoMenstruacaoAusente" value="Histerectomia" > Histerectomia
+                    </label>
+                    <label>
+                        <input type="radio" id="motivoMenstruacaoAusente" name="motivoMenstruacaoAusente" value="Menopausa" > Menopausa
+                    </label>
+                </div>
+                <label for="utilizaHormonio"><strong>Toma algum hormônio?</strong></label><br>
+                <label>
+                    <input type="radio" id="utilizaHormonio" name="utilizaHormonio" value="Nao" required> Não
+                </label>
+                <label>
+                    <input type="radio" id="utilizaHormonio" name="utilizaHormonio" value="Sim" required> Sim
+                </label>
+                <input type="text" class="form-control-inline" id="detalhesHormonal" placeholder="Há quanto tempo?">
+                <br>
+                <label>
+                    <input type="radio" id="utilizaHormonio" name="utilizaHormonio" value="Reposicao" required> Reposição
+                </label>
+                <label>
+                    <input type="radio" id="utilizaHormonio" name="utilizaHormonio" value="Tamoxifeno" required> Tamoxifeno
+                </label>
+                <label>
+                    <input type="radio" id="utilizaHormonio" name="utilizaHormonio" value="Anastrozol" required> Anastrozol
+                </label>
+                <label>
+                    <input type="radio" id="utilizaHormonio" name="utilizaHormonio" value="Outro" required> Outro
+                </label>
+                <input type="text" class="form-control-inline" id="outroHormonal" placeholder="Qual?">
+            </div>
+            <div class="form-group">
+                <label for="operacaoNaMama"><strong>Já realizou alguma operação na mama?</strong></label><br>
+                <label>
+                    <input type="radio" id="operacaoNaMama" name="operacaoNaMama" value="Nao" required> Não
+                </label><br>
+                <label>
+                    <input type="radio" id="operacaoNaMama" name="operacaoNaMama" value="Mamoplastia" required> Mamoplastia
+                </label>
+                <label>
+                    <input type="radio" id="operacaoNaMama" name="operacaoNaMama" value="Redutora" required> Redução de mamas
+                </label>
+                <label>
+                    <input type="radio" id="operacaoNaMama" name="operacaoNaMama" value="Silicone" required> Implante de silicone
+                </label><br>
+                <label>
+                    <input type="radio" id="operacaoNaMama" name="operacaoNaMama" value="Quadrantectomia" required> Quadrantectomia
+                </label>
+                <label>
+                    <input type="radio" id="operacaoNaMama" name="operacaoNaMama" value="Mastectomia" required> Mastectomia
+                </label>
+                <label>
+                    <input type="radio" id="operacaoNaMama" name="operacaoNaMama" value="Adenomastectomia" required> Adenomastectomia
+                </label>
+                <label>
+                    <input type="radio" id="operacaoNaMama" name="operacaoNaMama" value="Retalho" required> Retalho
+                </label><br>
+                <label>
+                    <input type="radio" id="operacaoNaMama" name="operacaoNaMama" value="RetirouLinfonodos" required> Retirou linfonodos das axilas? Qual lado?
+                </label>
+                <label>
+                    <input type="checkbox" id="operacaoNaMama" name="linfonodosAxila" value="Esquerdo"> Esquerdo
+                </label>
+                <label>
+                    <input type="checkbox" id="operacaoNaMama" name="linfonodosAxila" value="Direito"> Direito
+                </label>
+                <input type="text" class="form-control-inline" id="quandoLinfonodos" placeholder="Quando?">
+                <br>
+                Diagnóstico: <input type="text" class="form-control-inline" id="quandoOperacao" style="width: 40%;">
+            </div>
+            <div class="form-group">
+                <label for="implanteSilicone">Já colocou implantes de silicone?</label>
+                <label>
+                    <input type="radio" id="implanteSilicone" name="implanteSilicone" value="Sim" required> Sim
+                </label>
+                <label>
+                    <input type="radio" id="implanteSilicone" name="implanteSilicone" value="Nao" required> Não
+                </label>
+                <input type="text" class="form-control-inline" id="detalhesImplante" placeholder="Há quanto tempo?">
+                <p>
+                    <label>
+                        Já trocou o implante por alguma ruptura/contratura?
+                        <input type="radio" id="rupturaContratura" name="rupturaContratura" value="Sim"> Sim
+                    </label>
+                    <label>
+                        <input type="radio" id="rupturaContratura" name="rupturaContratura" value="Nao"> Não
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Caso sim, quando?
+                        <input type="text" class="form-control-inline">
+                    </label>
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="fezRadioterapia">Já fez radioterapia na mama?</label>
+                <br>
+                <label>
+                    <input type="radio" id="fezRadioterapia" name="fezRadioterapia" value="Sim" required> Sim
+                </label>
+                <label>
+                    <input type="radio" id="fezRadioterapia" name="fezRadioterapia" value="Nao" required> Não
+                </label>
+                <input type="text" class="form-control-inline" id="detalhesRadioterapia" placeholder="Quando terminou?">
+            </div>
+            <div class="form-group">
+                <label for="fezQuimioterapia">Já fez quimioterapia?</label>
+                <br>
+                <label>
+                    <input type="radio" id="fezQuimioterapia" name="fezQuimioterapia" value="Sim" required> Sim
+                </label>
+                <label>
+                    <input type="radio" id="fezQuimioterapia" name="fezQuimioterapia" value="Nao" required> Não
+                </label>
+                <label>
+                    <input type="radio" id="fezQuimioterapia" name="fezQuimioterapia" value="NaoSei" required> Antes da cirurgia
+                </label>
+                <label>
+                    <input type="radio" id="fezQuimioterapia" name="fezQuimioterapia" value="NaoSei" required> Após a cirurgia
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="procedimentosFeitos">Já realizou algum destes procedimentos?</label>
+                <br>
+                <label>
+                    <input type="checkbox" id="procedimentosFeitos" name="procedimentosFeitos" value="CoreBiopsia"> "Core" biópsia
+                </label>
+                <label>
+                    <input type="checkbox" id="procedimentosFeitos" name="procedimentosFeitos" value="Mamotomia"> Mamotomia
+                </label>
+                <label>
+                    <input type="checkbox" id="procedimentosFeitos" name="procedimentosFeitos" value="BiopsiaCirurgica"> Biópsia cirúrgica
+                </label>
+                <input type="text" class="form-control-inline" id="outrosProcedimentos" placeholder="Qual lado?">
+                <p>
+                    <label>
+                        Quando?
+                        <input type="text" class="form-control-inline">
+                    </label>
+                    Diagnóstico?
+                    <input type="text" class="form-control-inline">
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="outrasInformacoes">Você tem mais alguma coisa importante para nos informar?</label>
+                <br>
+                <input type="text" class="form-control-inline" id="outrasInformacoes" placeholder="Digite aqui..." style="width: 100%;">
+            </div>
+        </form>
+        <div class="text-center mb-4">
+            <span id="AlertaGeracao"></span>
+            <button id="gerarPDF" onclick="gerarPDF()" class="btn btn-success">Gerar PDF</button>
+        </div>
+    </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">São Marcos Triagem &copy; 2025. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../scripts/app.js"></script>
+</body>
+</html>

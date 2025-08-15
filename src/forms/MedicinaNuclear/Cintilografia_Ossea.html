@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de Cintilografia Óssea</title>
+    <link rel="icon" type="image/png" href="../../Imagens/IconeSaoMarcos.jpeg">
+    <script src="../../bootstrap-4.5.3-dist/jquery-3.7.1.slim.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fontawesome-free-7.0.0-web/css/all.min.css">
+    <script src="../../bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script src="../../scripts/app.js"></script>
+    <style>
+        @media (max-width: 767px) {
+            .form-row > .form-group {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .card-header {
+                font-size: 1.1rem;
+            }
+            .form-control-inline {
+                width: 100% !important;
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="cabeçalho shadow-sm">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <a class="navbar-brand d-flex align-items-center" href="../../../index.html">
+                <img src="../../Imagens/IconeSaoMarcos.jpeg" alt="Logo São Marcos" class="logo-header mr-3">
+                <span class="brand-title ml-2">São Marcos Triagem</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../Pages/MedicinaNuclear.html"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../../index.html">Início</a>
+                    </li>
+                    <li>
+                        <a class="nav-link custom-link" href="../../Pages/DuvidasSugestoes.html">Dúvidas ou sugestões</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-5">
+            <h1 class="text-center mb-3">QUESTIONÁRIO DE CINTILOGRAFIA ÓSSEA</h1>
+            <form>
+                <!-- Card 1: Informações do paciente -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Informações do paciente</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="nomePaciente">Paciente:</label>
+                            <input type="text" class="form-control" id="nomePaciente" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="sexoPaciente">Sexo</label>
+                                <select class="form-control" id="sexoPaciente" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="idadePaciente">Idade</label>
+                                <input type="number" class="form-control" id="idadePaciente" required>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="pesoPaciente">Peso (kg)</label>
+                                <input type="number" class="form-control" id="pesoPaciente" step="0.1">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="alturaPaciente">Altura (cm)</label>
+                                <input type="number" class="form-control" id="alturaPaciente" step="0.1">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="dataTriagem">Data do Exame</label>
+                                <input type="date" class="form-control" id="dataTriagem" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2: Questionário - Parte 1 -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Questionário - Parte 1</strong>
+                    </div>
+                    <div class="card-body">
+                        <!-- 1 -->
+                        <div class="form-group">
+                            <label><strong>1. Já fez este exame antes:</strong></label>
+                            <input type="radio" name="exameAntes" value="Nao" required> Não
+                            <input type="radio" name="exameAntes" value="Sim" style="margin-left:16px;" required> Sim
+                            <div class="mt-2">
+                                <label>Se sim, quando - Ano:</label>
+                                <input type="number" class="form-control-inline" style="width: 30%;" placeholder="Ano">
+                                <br>
+                                <label class="ml-2">Onde:</label>
+                                <input type="text" class="form-control-inline" style="width: 50%;" placeholder="Local">
+                            </div>
+                        </div>
+                        <!-- 2 -->
+                        <div class="form-group mt-3">
+                            <label><strong>2. Por que o seu médico pediu este exame? Dor óssea?</strong></label>
+                            <textarea class="form-control" rows="2"></textarea>
+                            <div class="mt-2">
+                                <label>Há quanto tempo tem este problema?</label>
+                                <input type="text" class="form-control-inline" style="width: 60%;">
+                            </div>
+                        </div>
+                        <!-- 3 -->
+                        <div class="form-group mt-3">
+                            <label><strong>3. Teve algum trauma/queda recente:</strong></label>
+                            <input type="radio" name="trauma" value="Sim" required> Sim
+                            <input type="radio" name="trauma" value="Nao" style="margin-left:16px;" required> Não
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 40%;">
+                        </div>
+                        <!-- 4 -->
+                        <div class="form-group mt-3">
+                            <label><strong>4. Já quebrou algum osso:</strong></label>
+                            <input type="radio" name="quebrouOsso" value="Sim" required> Sim
+                            <input type="radio" name="quebrouOsso" value="Nao" style="margin-left:16px;" required> Não
+                            <div class="mt-2">
+                                <label>Qual osso?</label>
+                                <input type="text" class="form-control-inline" style="width: 40%;">
+                                <input type="radio" name="ladoQuebrou" value="Direito" style="margin-left:16px;"> Direito
+                                <input type="radio" name="ladoQuebrou" value="Esquerdo" style="margin-left:16px;"> Esquerdo
+                            </div>
+                            <div class="mt-2">
+                                <label>Há quanto tempo:</label>
+                                <input type="text" class="form-control-inline" style="width: 60%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3: Questionário - Parte 2 -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Questionário - Parte 2</strong>
+                    </div>
+                    <div class="card-body">
+                        <!-- 5 -->
+                        <div class="form-group">
+                            <label><strong>5. Tem ou teve algum tumor?</strong></label>
+                            <input type="radio" name="tumor" value="Sim" required> Sim
+                            <input type="radio" name="tumor" value="Nao" style="margin-left:16px;" required> Não
+                            <div class="mt-2">
+                                <label>Qual osso?</label>
+                                <input type="text" class="form-control-inline" style="width: 40%;">
+                                <input type="radio" name="ladoTumor" value="Direito" style="margin-left:16px;"> Direito
+                                <input type="radio" name="ladoTumor" value="Esquerdo" style="margin-left:16px;"> Esquerdo
+                            </div>
+                            <div class="mt-2">
+                                <label>Há quanto tempo:</label>
+                                <input type="text" class="form-control-inline" style="width: 60%;">
+                            </div>
+                        </div>
+                        <!-- 6 -->
+                        <div class="form-group mt-3">
+                            <label><strong>6. Já fez alguma cirurgia?</strong></label>
+                            <input type="radio" name="cirurgia" value="Sim" required> Sim
+                            <input type="radio" name="cirurgia" value="Nao" style="margin-left:16px;" required> Não
+                            <input type="text" class="form-control-inline ml-2" placeholder="Qual?" style="width: 60%;">
+                        </div>
+                        <!-- 7 -->
+                        <div class="form-group mt-3">
+                            <label><strong>7. Já foi submetido à cirurgia óssea?</strong></label>
+                            <input type="radio" name="cirurgiaOssea" value="Sim" required> Sim
+                            <input type="radio" name="cirurgiaOssea" value="Nao" style="margin-left:16px;" required> Não
+                            <div class="mt-2">
+                                <label>Qual local?</label>
+                                <input type="text" class="form-control-inline" style="width: 40%;">
+                                <input type="radio" name="ladoCirurgiaOssea" value="Direito" style="margin-left:16px;"> Direito
+                                <input type="radio" name="ladoCirurgiaOssea" value="Esquerdo" style="margin-left:16px;"> Esquerdo
+                            </div>
+                            <div class="mt-2">
+                                <label>Há quanto tempo:</label>
+                                <input type="text" class="form-control-inline" style="width: 60%;">
+                            </div>
+                        </div>
+                        <!-- 8 -->
+                        <div class="form-group mt-3">
+                            <label><strong>8. Tem prótese óssea?</strong></label>
+                            <input type="radio" name="protese" value="Sim" required> Sim
+                            <input type="radio" name="protese" value="Nao" style="margin-left:16px;" required> Não
+                            <div class="mt-2">
+                                <label>Qual região do corpo?</label>
+                                <input type="text" class="form-control-inline" style="width: 40%;">
+                                <input type="radio" name="ladoProtese" value="Direito" style="margin-left:16px;"> Direito
+                                <input type="radio" name="ladoProtese" value="Esquerdo" style="margin-left:16px;"> Esquerdo
+                            </div>
+                            <div class="mt-2">
+                                <label>Há quanto tempo:</label>
+                                <input type="text" class="form-control-inline" style="width: 50%;">
+                            </div>
+                            <div class="mt-2">
+                                <label>Dor ou instabilidade na região da prótese?</label>
+                                <input type="text" class="form-control-inline" style="width: 60%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4: Questionário - Parte 3 -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Questionário - Parte 3</strong>
+                    </div>
+                    <div class="card-body">
+                        <!-- 9 -->
+                        <div class="form-group">
+                            <label><strong>9. Teve/tem infecção óssea?</strong></label>
+                            <input type="radio" name="infeccao" value="Sim" required> Sim
+                            <input type="radio" name="infeccao" value="Nao" style="margin-left:16px;" required> Não
+                            <div class="mt-2">
+                                <label>Local:</label>
+                                <input type="text" class="form-control-inline" style="width: 40%;">
+                                <input type="radio" name="ladoInfeccao" value="Direito" style="margin-left:16px;"> Direito
+                                <input type="radio" name="ladoInfeccao" value="Esquerdo" style="margin-left:16px;"> Esquerdo
+                            </div>
+                            <div class="mt-2">
+                                <label>Há quanto tempo:</label>
+                                <input type="text" class="form-control-inline" style="width: 50%;">
+                            </div>
+                            <div class="mt-2">
+                                <label>Tratamento realizado (antibiótico/período):</label>
+                                <input type="text" class="form-control-inline" style="width: 60%;">
+                            </div>
+                        </div>
+                        <!-- 10 -->
+                        <div class="form-group mt-3">
+                            <label><strong>10. Já fez radioterapia?</strong></label>
+                            <input type="radio" name="radioterapia" value="Sim" required> Sim
+                            <input type="radio" name="radioterapia" value="Nao" style="margin-left:16px;" required> Não
+                            <div class="mt-2">
+                                <label>Local:</label>
+                                <input type="text" class="form-control-inline" style="width: 40%;">
+                                <input type="radio" name="ladoRadioterapia" value="Direito" style="margin-left:16px;"> Direito
+                                <input type="radio" name="ladoRadioterapia" value="Esquerdo" style="margin-left:16px;"> Esquerdo
+                            </div>
+                            <div class="mt-2">
+                                <label>Há quanto tempo:</label>
+                                <input type="text" class="form-control-inline" style="width: 60%;">
+                            </div>
+                        </div>
+                        <!-- 11 -->
+                        <div class="form-group mt-3">
+                            <label><strong>11. Já fez quimioterapia?</strong></label>
+                            <input type="radio" name="quimioterapia" value="Sim" required> Sim
+                            <input type="radio" name="quimioterapia" value="Nao" style="margin-left:16px;" required> Não
+                            <div class="mt-2">
+                                <label>Se sim, quando foi a última sessão:</label>
+                                <input type="text" class="form-control-inline" style="width: 60%;">
+                            </div>
+                        </div>
+                        <!-- 12 -->
+                        <div class="form-group mt-3">
+                            <label><strong>12. Somente para homens - valor do último PSA:</strong></label>
+                            <input type="text" class="form-control-inline" style="width: 40%;">
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5: Observações -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Observações</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-warning" role="alert">
+                            Favor fornecer estudos prévios para que possamos tirar cópias dos laudos, isso poderá ajudar na interpretação das imagens.
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="text-center mb-4">
+                    <span id="AlertaGeracao"></span>
+                    <button id="gerarPDF" onclick="gerarPDF()" class="btn btn-success">Gerar PDF</button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-light text-center py-3 mt-4">
+        <div class="container">
+            <p class="mb-0">São Marcos Triagem &copy; 2025. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de Cintilografia da Tireoide – REV.00</title>
+    <link rel="icon" type="image/png" href="../../Imagens/IconeSaoMarcos.jpeg">
+    <script src="../../bootstrap-4.5.3-dist/jquery-3.7.1.slim.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fontawesome-free-7.0.0-web/css/all.min.css">
+    <script src="../../bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script src="../../scripts/app.js"></script>
+</head>
+<body>
+    <header class="cabeçalho shadow-sm">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <a class="navbar-brand d-flex align-items-center" href="../../../index.html">
+<img src="../../Imagens/IconeSaoMarcos.jpeg" alt="Logo São Marcos" class="logo-header mr-3">                <span class="brand-title ml-2">São Marcos Triagem</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../Pages/MedicinaNuclear.html"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../index.html">Início</a>
+                    </li>
+                    <li>
+                        <a class="nav-link custom-link" href="../../../Pages/DuvidasSugestoes.html">Dúvidas ou sugestões</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-5">
+            <h1 class="text-center mb-3">QUESTIONÁRIO DE CINTILOGRAFIA DA TIREOIDE – REV.00</h1>
+            <form>
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Informações do paciente</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="nomePaciente">Nome:</label>
+                            <input type="text" class="form-control" id="nomePaciente" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="dataNascimento">Data de Nascimento:</label>
+                                <input type="date" class="form-control" id="dataNascimento" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="idadePaciente">Idade:</label>
+                                <input type="number" class="form-control" id="idadePaciente" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="dataExame">Data do Exame:</label>
+                                <input type="date" autocomplete="on" class="form-control" id="dataTriagem" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="sexoPaciente">Sexo</label>
+                                <select class="form-control" id="sexoPaciente" style="width: 30%; margin-left: 10px;" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            Peso(kg): <input type="number" class="form-control-inline">
+                            Altura(cm): <input type="number" class="form-control-inline">
+                        </div>
+                        <div class="alert alert-info mt-2" role="alert">
+                            Para melhor atendê-lo e garantir a segurança na realização do seu exame, solicitamos o preenchimento dos dados abaixo.<br>
+                            O nível de radiação do material usado no exame é relativamente baixo (calculado pelo peso do paciente) e não provoca reação alérgica.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Motivo do exame -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Motivo de realização do exame</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoAlteracaoLab" name="motivoAlteracaoLab">
+                            <label class="form-check-label" for="motivoAlteracaoLab">Alteração de exames laboratoriais</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoNoduloImagem" name="motivoNoduloImagem">
+                            <label class="form-check-label" for="motivoNoduloImagem">Visualização de nódulo na tireoide por outro método de imagem</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoDorInflamacao" name="motivoDorInflamacao">
+                            <label class="form-check-label" for="motivoDorInflamacao">Sinais de dor/inflamação na região cervical</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoAcompanhamento" name="motivoAcompanhamento">
+                            <label class="form-check-label" for="motivoAcompanhamento">Acompanhamento de doença tireoidiana</label>
+                            <input type="text" class="form-control-inline ml-2" id="qualDoencaTireoide" placeholder="Qual?" style="width: 60%;">
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoOutros" name="motivoOutros">
+                            <label class="form-check-label" for="motivoOutros">Outros</label>
+                            <input type="text" class="form-control-inline ml-2" id="motivoOutrosQual" placeholder="Qual?" style="width: 60%;">
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3: Sinais/Fatores associados -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Sinais/Fatores associados</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>TEM HIPER OU HIPOTIREOIDISMO:</label>
+                                <input type="radio" name="hiperHipo" value="Sim"> Sim
+                                <input type="radio" name="hiperHipo" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Qual?" style="width: 40%;">
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 40%;">
+                            </div>
+                            <div class="form-group">
+                                <label>TEM NÓDULO TIREOIDIANO:</label>
+                                <input type="radio" name="noduloTireoide" value="Sim"> Sim
+                                <input type="radio" name="noduloTireoide" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Localização" style="width: 60%;">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>PERDA OU GANHO DE PESO:</label>
+                                <input type="radio" name="peso" value="Sim"> Sim
+                                <input type="radio" name="peso" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Quantos quilos e há quanto tempo?" style="width: 60%;">
+                            </div>
+                            <div class="form-group">
+                                <label>CONSTIPAÇÃO INTESTINAL OU DIARREIA:</label>
+                                <input type="radio" name="intestino" value="Sim"> Sim
+                                <input type="radio" name="intestino" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Qual?" style="width: 40%;">
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 40%;">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>PÉS E MÃOS FRIAS:</label>
+                                <input type="radio" name="pesMaosFrias" value="Sim"> Sim
+                                <input type="radio" name="pesMaosFrias" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>IRRITABILIDADE:</label>
+                                <input type="radio" name="irritabilidade" value="Sim"> Sim
+                                <input type="radio" name="irritabilidade" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>FADIGA:</label>
+                                <input type="radio" name="fadiga" value="Sim"> Sim
+                                <input type="radio" name="fadiga" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>FOME EXCESSIVA:</label>
+                                <input type="radio" name="fomeExcessiva" value="Sim"> Sim
+                                <input type="radio" name="fomeExcessiva" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>PALPITAÇÕES/ARRITMIAS CARDÍACAS:</label>
+                                <input type="radio" name="palpitacoes" value="Sim"> Sim
+                                <input type="radio" name="palpitacoes" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>MENSTRUAÇÃO IRREGULAR:</label>
+                                <input type="radio" name="menstruacaoIrregular" value="Sim"> Sim
+                                <input type="radio" name="menstruacaoIrregular" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>INSÔNIA:</label>
+                                <input type="radio" name="insonia" value="Sim"> Sim
+                                <input type="radio" name="insonia" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>PROTUSÃO DOS OLHOS:</label>
+                                <input type="radio" name="protusaoOlhos" value="Sim"> Sim
+                                <input type="radio" name="protusaoOlhos" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>TREMORES:</label>
+                                <input type="radio" name="tremores" value="Sim"> Sim
+                                <input type="radio" name="tremores" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>QUEDA DE CABELO:</label>
+                                <input type="radio" name="quedaCabelo" value="Sim"> Sim
+                                <input type="radio" name="quedaCabelo" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>UNHAS FRACAS:</label>
+                                <input type="radio" name="unhasFracas" value="Sim"> Sim
+                                <input type="radio" name="unhasFracas" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>FEZ CIRURGIA NA TIREOIDE:</label>
+                                <input type="radio" name="cirurgiaTireoide" value="Nao"> Não
+                                <input type="radio" name="cirurgiaTireoide" value="Sim" style="margin-left:16px;"> Sim
+                                <input type="text" class="form-control-inline ml-2" placeholder="Qual?" style="width: 40%;">
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 40%;">
+                            </div>
+                            <div class="form-group">
+                                <label>FEZ CIRURGIA NAS PARATIREOIDES:</label>
+                                <input type="radio" name="cirurgiaParatireoide" value="Nao"> Não
+                                <input type="radio" name="cirurgiaParatireoide" value="Sim" style="margin-left:16px;"> Sim
+                                <input type="text" class="form-control-inline ml-2" placeholder="Qual?" style="width: 40%;">
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 40%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4: Exames laboratoriais -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Exames laboratoriais</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="tsh">TSH:</label>
+                                <input type="text" class="form-control-inline" id="tsh" style="width: 40%;">
+                                <label class="ml-2">Data:</label>
+                                <input type="date" class="form-control-inline" style="width: 35%;">
+                            </div>
+                            <div class="form-group">
+                                <label for="t4livre">T4 Livre:</label>
+                                <input type="text" class="form-control-inline" id="t4livre" style="width: 35%;">
+                                <label class="ml-2">Data:</label>
+                                <input type="date" class="form-control-inline" style="width: 32%;">
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="medicamentosEmUso">Medicamentos em uso</label>
+                            <textarea class="form-control" id="medicamentosEmUso" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5: Estudos prévios -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Estudos prévios</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Já fez esse exame anteriormente?</label>
+                                <input type="radio" name="exameAnterior" value="Sim"> Sim
+                                <input type="radio" name="exameAnterior" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                            <div class="form-group">
+                                <label>Já realizou ecografia ou algum outro exame da região cervical?</label>
+                                <input type="radio" name="exameCervical" value="Sim"> Sim
+                                <input type="radio" name="exameCervical" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 60%;">
+                            </div>
+                        </div>
+                        <div class="alert alert-warning mt-3" role="alert">
+                            Favor fornecer estudos prévios para que possamos tirar cópias dos laudos, isso poderá ajudar na interpretação das imagens.
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="text-center mb-4">
+                    <span id="AlertaGeracao"></span>
+                    <button id="gerarPDF" onclick="gerarPDF()" class="btn btn-success">Gerar PDF</button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">São Marcos Triagem &copy; 2025. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

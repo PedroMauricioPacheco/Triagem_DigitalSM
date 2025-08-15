@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triagem Pescoço/ATM</title>
+    <link rel="icon" type="image/png" href="../../Imagens/IconeSaoMarcos.jpeg">
+    <script src="../../bootstrap-4.5.3-dist/jquery-3.7.1.slim.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fontawesome-free-7.0.0-web/css/all.min.css">
+    <script src="../../bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script src="../../scripts/app.js"></script>
+</head>
+<body>
+    <header class="cabeçalho shadow-sm">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <a class="navbar-brand d-flex align-items-center" href="../../../index.html">
+<img src="../../Imagens/IconeSaoMarcos.jpeg" alt="Logo São Marcos" class="logo-header mr-3">                <span class="brand-title ml-2">São Marcos Triagem</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" class="nav-link custom-link" href="../../Pages/Ressonancia.html"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../../index.html">Início</a>
+                    </li>
+                    <li>
+                        <a class="nav-link custom-link" href="../../Pages/DuvidasSugestoes.html">Dúvidas ou sugestões</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+    <div class="container mt-5">
+        <h1 class="text-center">Formulário de Triagem</h1>
+        <h4 class="text-center text-lime mb-4">Protocolo para exame de Pescoço/ATM/Orofaringe</h4>
+        <!-- Informações padrão -->
+        <div class="card mb-4 border-success">
+            <div class="card-header bg-lime text-black">
+                <strong>Informações padrão</strong>
+            </div>
+            <div class="card-body d-flex align-items-start">
+                <div style="flex: 1;">
+                    <div class="form-group">
+                        <label for="nomePaciente">Nome do paciente</label>
+                        <input type="text" class="form-control" id="nomePaciente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="idadePaciente">Idade</label>
+                        <input type="number" class="form-control" id="idadePaciente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataTriagem">Data</label>
+                        <input type="date" autocomplete="on" class="form-control" id="dataTriagem" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Regiã do exame -->
+        <div class="card mb-4 border-success">
+            <div class="card-header bg-lime text-black">
+                <strong>Região do exame</strong>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label class="mr-3">
+                        <input type="checkbox" name="regiaoExame" value="ATM"> ATM
+                    </label>
+                    <label class="mr-3">
+                        <input type="checkbox" name="regiaoExame" value="Pescoço"> Pescoço
+                    </label>
+                    <label>
+                        <input type="checkbox" name="regiaoExame" value="Orofaringe"> Orofaringe
+                    </label>
+                </div>
+                <div class="form-group mt-4">
+                    <label for="motivoExame"><strong>1. Qual o motivo deste exame?</strong><br>
+                        <span class="text-muted">Tente resumir seu problema ou queixa principal</span>
+                    </label>
+                    <textarea class="form-control" id="motivoExame" rows="2" placeholder="Descreva aqui..." style="font-size:1.1em;"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Card cirurgia -->
+        <div class="card mb-4 border-success">
+            <div class="card-header bg-lime text-black">
+                <strong>Histórico cirúrgico</strong>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="jaOperado"><strong>2. Já foi operado alguma vez?</strong></label><br>
+                    <label class="mr-3">
+                        <input type="radio" name="jaOperado" value="Sim" required onclick="document.getElementById('detalhesCirurgia').disabled = false;"> Sim
+                    </label>
+                    <label>
+                        <input type="radio" name="jaOperado" value="Nao" required onclick="document.getElementById('detalhesCirurgia').disabled = true; document.getElementById('detalhesCirurgia').value = '';"> Não
+                    </label>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="detalhesCirurgia">Que cirurgias e há quanto tempo?</label>
+                    <input type="text" class="form-control" id="detalhesCirurgia" disabled placeholder="Descreva as cirurgias e há quanto tempo" style="font-size:1.1em;">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 3: Já foi submetido a: -->
+        <div class="card mb-4 border-success">
+            <div class="card-header bg-lime text-black">
+                <strong>3. Já foi submetido a:</strong>
+            </div>
+            <div class="card-body">
+                <!-- Quimioterapia -->
+                <div class="form-group">
+                    <label><strong>Quimioterapia</strong></label><br>
+                    <label class="mr-3">
+                        <input type="radio" name="quimioterapia" value="Sim" required onclick="document.getElementById('tempoQuimio').disabled = false;"> Sim
+                    </label>
+                    <label>
+                        <input type="radio" name="quimioterapia" value="Nao" required onclick="document.getElementById('tempoQuimio').disabled = true; document.getElementById('tempoQuimio').value = '';"> Não
+                    </label>
+                    <input type="text" class="form-control mt-2" id="tempoQuimio" disabled placeholder="Há quanto tempo?" style="max-width:300px;">
+                </div>
+                <!-- Radioterapia -->
+                <div class="form-group mt-3">
+                    <label><strong>Radioterapia</strong></label><br>
+                    <label class="mr-3">
+                        <input type="radio" name="radioterapia" value="Sim" required onclick="document.getElementById('tempoRadio').disabled = false;"> Sim
+                    </label>
+                    <label>
+                        <input type="radio" name="radioterapia" value="Nao" required onclick="document.getElementById('tempoRadio').disabled = true; document.getElementById('tempoRadio').value = '';"> Não
+                    </label>
+                    <input type="text" class="form-control mt-2" id="tempoRadio" disabled placeholder="Há quanto tempo?" style="max-width:300px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: Já fez biópsia? -->
+        <div class="card mb-4 border-success">
+            <div class="card-header bg-lime text-black">
+                <strong>4. Já fez biópsia?</strong>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label><strong>Biópsia</strong></label><br>
+                    <label class="mr-3">
+                        <input type="radio" name="biopsia" value="Sim" required onclick="document.getElementById('quandoBiopsia').disabled = false;"> Sim
+                    </label>
+                    <label>
+                        <input type="radio" name="biopsia" value="Nao" required onclick="document.getElementById('quandoBiopsia').disabled = true; document.getElementById('quandoBiopsia').value = '';"> Não
+                    </label>
+                    <input type="text" class="form-control mt-2" id="quandoBiopsia" disabled placeholder="Quando?" style="max-width:300px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Nome do entrevistador -->
+        <div class="card mb-4 border-success">
+            <div class="card-header bg-lime text-black">
+                <strong>Entrevistador</strong>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="nomeEntrevistador">Nome do entrevistador:</label>
+                    <input type="text" class="form-control" id="nomeEntrevistador" required placeholder="Digite o nome">
+                </div>
+            </div>
+        </div>
+        <div class="text-center mb-4">
+            <span id="AlertaGeracao"></span>
+            <button id="gerarPDF" onclick="gerarPDF()" class="btn btn-success">Gerar PDF</button>
+        </div>
+    </div>
+</main>
+<footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">São Marcos Triagem &copy; 2025. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

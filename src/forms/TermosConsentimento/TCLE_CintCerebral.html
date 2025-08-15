@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termo de Consentimento Livre e Esclarecido - Cintilografia Cerebral</title>
+    <link rel="icon" type="image/png" href="../../Imagens/IconeSaoMarcos.jpeg">
+    <script src="../../bootstrap-4.5.3-dist/jquery-3.7.1.slim.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fontawesome-free-7.0.0-web/css/all.min.css">
+    <script src="../../bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script src="../../scripts/app.js"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .documento {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .cabecalho-documento {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        .titulo-principal {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .subtitulo {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .paragrafo {
+            text-align: justify;
+            margin-bottom: 15px;
+            text-indent: 30px;
+        }
+        .secao-titulo {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .assinaturas {
+            margin-top: 40px;
+            page-break-before: always;
+            page-break-inside: avoid;
+        }
+        .linha-assinatura {
+            border-bottom: 1px solid #333;
+            width: 200px;
+            display: inline-block;
+            margin: 5px 10px;
+        }
+        .campo-preenchimento {
+            border-bottom: 1px solid #333;
+            min-width: 200px;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        .data-local {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .observacao-final {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .canvas-assinatura {
+            border: 2px solid #333;
+            border-radius: 5px;
+            margin: 10px 0;
+            background: white;
+            display: block;
+            cursor: crosshair;
+        }
+        .btn-canvas {
+            margin: 5px;
+            font-size: 12px;
+            padding: 5px 10px;
+        }
+        .canvas-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { font-size: 12px; }
+            .canvas-assinatura { border: 1px solid #333; }
+        }
+        @media (max-width: 768px) {
+            .documento { padding: 10px; }
+            .linha-assinatura { width: 150px; }
+            .canvas-assinatura { width: 100% !important; height: 80px !important; }
+        }
+    </style>
+</head>
+<body>
+    <header class="cabeçalho shadow-sm no-print">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <a class="navbar-brand d-flex align-items-center" href="../../../index.html">
+                <img src="../../Imagens/IconeSaoMarcos.jpeg" alt="Logo São Marcos" class="logo-header mr-3">
+                <span class="brand-title ml-2">São Marcos Triagem</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../Pages/MedicinaNuclear.html"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../../index.html">Início</a>
+                    </li>
+                    <li>
+                        <a class="nav-link custom-link" href="../../Pages/DuvidasSugestoes.html">Dúvidas ou sugestões</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="documento mt-4">
+            <div class="cabecalho-documento">
+                <div class="titulo-principal">Termo de Consentimento Livre e Esclarecido</div>
+                <div class="subtitulo">Cintilografia Cerebral</div>
+            </div>
+
+            <form>
+                <div class="paragrafo">
+                    Por este instrumento particular o(a) paciente 
+                    <input type="text" class="campo-preenchimento border-0" style="width: 300px;">
+                    ou seu responsável, Sr.(a) 
+                    <input type="text" class="campo-preenchimento border-0" style="width: 250px;">, 
+                    declara, para todos os fins legais, especialmente do disposto no artigo 6º, III e no artigo 39, VI, da Lei 8.078/90 que dá plena autorização ao (à) médico(a) assistente, para proceder as investigações necessárias ao diagnóstico do seu estado de saúde, bem como executar o procedimento designado <strong>"Cintilografia Cerebral"</strong>, e todos os procedimentos que o incluem, inclusive anestesias ou outras condutas médicas que tal procedimento médico possa requerer, podendo o referido profissional valer-se do auxílio de outros profissionais de saúde.
+                </div>
+
+                <div class="paragrafo">
+                    Declara, outrossim, que o referido(a) médico(a), atendendo ao disposto no art. 22º do Código de Ética Médica (CFM nº 2.217/2018) e no art. 9º da Lei 8.078/90 e após a apresentação de métodos alternativos, sugeriu o exame de imagem anteriormente citado, prestando informações detalhadas sobre o diagnóstico e sobre os procedimentos a serem adotados no exame diagnóstico sugerido e ora autorizado, especialmente as que se seguem:
+                </div>
+
+                <div class="secao-titulo">DEFINIÇÃO:</div>
+                <div class="paragrafo">
+                    A Cintilografia Cerebral é um exame que fornece imagens para estudo da barreira hematoencefálica, através da concentração de radiofármaco no cérebro. O exame é indicado para avaliação de doença vascular cerebral isquêmica, hemorrágica e do risco pré-operatório; localização e laterização pré-operatória de foco de epilepsia; avaliação da suspeita de demência, tais como doença de Alzheimer, demência de corpos de Lewy, doença de Parkinson com demência e demência frontotemporal; avaliação de traumatismo craniano; avaliação de suspeita de inflamação cerebral e; diagnóstico de morte cerebral.
+                </div>
+
+                <div class="secao-titulo">PROCESSOS A SEREM REALIZADOS:</div>
+                <div class="paragrafo">
+                    Será administrado um medicamento através de uma das veias. Em seguida, será realizado imagens em um equipamento chamado Gama Câmara, com o paciente deitado. Todo procedimento tem duração de aproximadamente 1 hora. Poderá ser solicitado a repetição das imagens caso algum motivo impeça o diagnóstico pelo médico.
+                </div>
+
+                <div class="secao-titulo">MEDICAÇÕES A SEREM UTILIZADAS:</div>
+                <div class="paragrafo">
+                    O exame é realizado com a injeção endovenosa (em uma veia) do radiofármaco denominado 99mTc-ECD. É um líquido transparente que será eliminado de seu corpo pelos rins e não vai alterar o aspecto da urina.
+                </div>
+
+                <div class="secao-titulo">BENEFÍCIOS:</div>
+                <div class="paragrafo">
+                    O exame proporciona um diagnóstico sendo um método seguro, pouco invasivo e de fácil realização. O paciente pode retornar às atividades normais após o término do exame.
+                </div>
+
+                <div class="secao-titulo">POSSÍVEIS RISCOS E EFEITOS COLATERAIS:</div>
+                <div class="paragrafo">
+                    As reações adversas relacionadas aos radiofármacos são raras ou muito raras e são comumente leves, reversíveis, sem muita gravidade e geralmente não necessitam de intervenção médica.
+                </div>
+
+                <div class="secao-titulo">CONTRAINDICAÇÃO E COMPLICAÇÕES:</div>
+                <div class="paragrafo">
+                    Durante o período de gestação ou amamentação, este medicamento somente deverá ser administrado em caso de extrema necessidade. Caso a administração do radiofármaco seja inevitável durante o período de lactação, o aleitamento deve ser suspenso por pelo menos 24 horas após a injeção e o leite produzido durante esse período deve ser eliminado. É recomendado evitar o contato próximo entre a mãe e o bebê durante as 12 horas seguintes à injeção.
+                </div>
+
+                <div class="paragrafo">
+                    É importante que o questionário anexo seja respondido com o máximo de precisão, pois é necessário para a sua segurança. Caso o paciente seja menor, solicitamos ao responsável que preencha.
+                </div>
+
+                <div class="paragrafo">
+                    Confirmo que recebi explicações, li, compreendi os termos médicos e concordo com os termos deste documento, e que me foi dada à oportunidade de fazer perguntas e esclarecer eventuais dúvidas, ficando claro para mim quais são os propósitos dos procedimentos o qual estarei submetido, seus desconfortos e riscos pelos eventuais efeitos indesejáveis decorrentes. Entendi e concordo voluntariamente o que é necessário eu fazer para que a Cintilografia Cerebral tenha o resultado pretendido.
+                </div>
+
+                <div class="paragrafo">
+                    Declaro, que nada omiti em relação a minha saúde e que esta declaração passe a fazer parte da minha ficha clínica ou fique na guarda pessoal do (a) meu médico (a), ficando autorizado a utilizá-la em qualquer época, no amparo e na defesa de seus direitos, sem que tal utilização implique em qualquer tipo de ofensa. Fica autorizado o acesso à minha ficha clínica, que por ventura exista em outro estabelecimento hospitalar, clínica ou consultório, inclusive a solicitar, segunda via de exames laboratoriais, cardiológicos, RX e demais por ventura existentes.
+                </div>
+
+                <div class="paragrafo">
+                    Assim, tendo conhecimento, autorizo a realização do mesmo, expressando que as informações foram prestadas presencialmente, tendo sido perfeitamente entendidas e aceitas. Ainda, fica instituído que, caso o procedimento não seja realizado dentro do prazo de 120 (cento e vinte) dias, contados a partir do dia imediatamente posterior àquele da assinatura, o presente termo perderá sua validade, sendo necessária a elaboração de novo documento. Fica também estabelecido que diante o procedimento, o paciente e/ou representante legal pode revogar este consentimento a qualquer momento de maneira formal.
+                </div>
+
+                <div class="paragrafo">
+                    Para que produza os efeitos legais assino o presente termo.
+                </div>
+
+                <!-- PÁGINA 3 - ASSINATURAS -->
+                <div class="assinaturas">
+                    <div class="cabecalho-documento">
+                        <div class="titulo-principal">Termo de Consentimento Livre e Esclarecido</div>
+                        <div class="subtitulo">Cintilografia Cerebral - Página de Assinaturas</div>
+                    </div>
+
+                    <div class="data-local text-center">
+                        Joinville (SC) 
+                        <input type="number" class="campo-preenchimento border-0 text-center" style="width: 40px;" min="1" max="31"> 
+                        de 
+                        <input type="text" class="campo-preenchimento border-0 text-center" style="width: 120px;"> 
+                        de 
+                        <input type="number" class="campo-preenchimento border-0 text-center" style="width: 80px;" min="2024" max="2030">.
+                    </div>
+
+                    <!-- Assinatura do Paciente -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <strong>Assinatura do (a) paciente</strong>
+                            </div>
+                            <div class="canvas-container">
+                                <canvas id="canvasPaciente" class="canvas-assinatura" width="300" height="100"></canvas>
+                                <div class="no-print">
+                                    <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasPaciente')">
+                                        <i class="fas fa-eraser"></i> Limpar
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                RG Nº <input type="text" class="campo-preenchimento border-0" style="width: 120px;">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <strong>Assinatura do (a) resp. pelo (a) paciente</strong>
+                            </div>
+                            <div class="canvas-container">
+                                <canvas id="canvasResponsavel" class="canvas-assinatura" width="300" height="100"></canvas>
+                                <div class="no-print">
+                                    <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasResponsavel')">
+                                        <i class="fas fa-eraser"></i> Limpar
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                RG Nº <input type="text" class="campo-preenchimento border-0" style="width: 120px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assinatura do Médico -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="text-center">
+                                <strong>Assinatura do (a) médico (a)</strong>
+                            </div>
+                            <div class="canvas-container">
+                                <canvas id="canvasMedico" class="canvas-assinatura mx-auto" width="400" height="100"></canvas>
+                                <div class="no-print">
+                                    <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasMedico')">
+                                        <i class="fas fa-eraser"></i> Limpar
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                CRM: <input type="text" class="campo-preenchimento border-0" style="width: 120px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assinaturas das Testemunhas -->
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <strong>Assinatura Testemunha 1</strong>
+                            </div>
+                            <div class="canvas-container">
+                                <canvas id="canvasTestemunha1" class="canvas-assinatura" width="300" height="100"></canvas>
+                                <div class="no-print">
+                                    <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasTestemunha1')">
+                                        <i class="fas fa-eraser"></i> Limpar
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                RG Nº <input type="text" class="campo-preenchimento border-0" style="width: 120px;">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <strong>Assinatura Testemunha 2</strong>
+                            </div>
+                            <div class="canvas-container">
+                                <canvas id="canvasTestemunha2" class="canvas-assinatura" width="300" height="100"></canvas>
+                                <div class="no-print">
+                                    <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasTestemunha2')">
+                                        <i class="fas fa-eraser"></i> Limpar
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                RG Nº <input type="text" class="campo-preenchimento border-0" style="width: 120px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="observacao-final">
+                        <strong>OBS: Obrigatório rubricar todas as vias.</strong>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4 no-print">
+                    <button type="button" onclick="window.print()" class="btn btn-success btn-lg">
+                        <i class="fas fa-print mr-2"></i>Imprimir Termo
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3 no-print">
+        <p class="mb-0">São Marcos Triagem &copy; 2025. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

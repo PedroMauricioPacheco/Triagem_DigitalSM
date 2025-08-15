@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de Cintilografia de Pesquisa de Esvaziamento Gástrico – REV.00</title>
+    <link rel="icon" type="image/png" href="../../Imagens/IconeSaoMarcos.jpeg">
+    <script src="../../bootstrap-4.5.3-dist/jquery-3.7.1.slim.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fontawesome-free-7.0.0-web/css/all.min.css">
+    <script src="../../bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script src="../../scripts/app.js"></script>
+    <style>
+        @media (max-width: 767px) {
+            .form-row > .form-group {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .card-header {
+                font-size: 1.1rem;
+            }
+            .form-control-inline {
+                width: 100% !important;
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="cabeçalho shadow-sm">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <a class="navbar-brand d-flex align-items-center" href="../../../index.html">
+                <img src="../../Imagens/IconeSaoMarcos.jpeg" alt="Logo São Marcos" class="logo-header mr-3">
+                <span class="brand-title ml-2">São Marcos Triagem</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../Pages/MedicinaNuclear.html"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../../index.html">Início</a>
+                    </li>
+                    <li>
+                        <a class="nav-link custom-link" href="../../Pages/DuvidasSugestoes.html">Dúvidas ou sugestões</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-5">
+            <h1 class="text-center mb-3">QUESTIONÁRIO DE CINTILOGRAFIA DE PESQUISA DE ESVAZIAMENTO GÁSTRICO – REV.00</h1>
+            <form>
+                <!-- Card 1: Informações do paciente -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Informações do paciente</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="nomePaciente">Paciente:</label>
+                            <input type="text" class="form-control" id="nomePaciente" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="sexoPaciente">Sexo</label>
+                                <select class="form-control" id="sexoPaciente" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="idadePaciente">Idade</label>
+                                <input type="number" class="form-control" id="idadePaciente" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="pesoPaciente">Peso (kg)</label>
+                                <input type="number" class="form-control" id="pesoPaciente" step="0.1">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="alturaPaciente">Altura (cm)</label>
+                                <input type="number" class="form-control" id="alturaPaciente" step="0.1">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="dataExame">Data do Exame</label>
+                                <input type="date" class="form-control" id="dataExame" required>
+                            </div>
+                        </div>
+                        <div class="alert alert-info mt-2" role="alert">
+                            Para melhor atendê-lo e garantir a segurança na realização do seu exame, solicitamos o preenchimento dos dados abaixo.<br>
+                            O nível de radiação do material usado no exame é relativamente baixo (calculado pelo peso do paciente) e não provoca reação alérgica.
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2: Motivo do exame -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Motivo de realização do exame</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="motivoEmpachamento">
+                            <label class="form-check-label" for="motivoEmpachamento">Empachamento/sensação de estar com o estômago cheio</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 50%;">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="motivoNauseasVomitos">
+                            <label class="form-check-label" for="motivoNauseasVomitos">Episódios de náuseas/vômitos</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Quantos episódios?" style="width: 30%;">
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 30%;">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="motivoDorAbdominal">
+                            <label class="form-check-label" for="motivoDorAbdominal">Dor abdominal</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 50%;">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="motivoFaltaApetite">
+                            <label class="form-check-label" for="motivoFaltaApetite">Falta de apetite</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 50%;">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="motivoOutros">
+                            <label class="form-check-label" for="motivoOutros">Outros motivos</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Quais?" style="width: 30%;">
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 30%;">
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3: Patologias/Fatores associados -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Patologias/Fatores associados</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <span>DIABETES:</span>
+                            <label><input type="radio" name="diabetes" value="Nao" required> Não</label>
+                            <label style="margin-left:16px;"><input type="radio" name="diabetes" value="Sim" required> Sim</label>
+                            <div class="mt-2">
+                                <span>Se sim, está controlado?</span>
+                                <label><input type="radio" name="diabetesControlado" value="Nao"> Não</label>
+                                <label style="margin-left:16px;"><input type="radio" name="diabetesControlado" value="Sim"> Sim</label>
+                                <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 40%;">
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>FAZ USO DE INSULINA:</span>
+                            <label><input type="radio" name="insulina" value="Nao" required> Não</label>
+                            <label style="margin-left:16px;"><input type="radio" name="insulina" value="Sim" required> Sim</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 50%;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>FUMA:</span>
+                            <label><input type="radio" name="fuma" value="Nao" required> Não</label>
+                            <label style="margin-left:16px;"><input type="radio" name="fuma" value="Sim" required> Sim</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 50%;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>SE MULHER:</span>
+                            <label><input type="radio" name="situacaoMenstrual" value="MenstruacaoNormal"> Menstruação normal</label>
+                            <label style="margin-left:16px;"><input type="radio" name="situacaoMenstrual" value="PreMenopausa"> Pré-menopausa</label>
+                            <label style="margin-left:16px;"><input type="radio" name="situacaoMenstrual" value="Menopausa"> Menopausa</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4: Exames laboratoriais -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Exames laboratoriais</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="glicemia">GLICEMIA:</label>
+                            <input type="text" class="form-control-inline" id="glicemia" style="width: 40%;">
+                            <label class="ml-2">Data:</label>
+                            <input type="date" class="form-control-inline" style="width: 21%;">
+                        </div>
+                        <div class="form-group">
+                            <label for="hemoglobinaGlicada">HEMOGLOBINA GLICADA:</label>
+                            <input type="text" class="form-control-inline" id="hemoglobinaGlicada" style="width: 40%;">
+                            <label class="ml-2">Data:</label>
+                            <input type="date" class="form-control-inline" style="width: 21%;">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="medicamentosEmUso">Medicamentos em uso:</label>
+                            <textarea class="form-control" id="medicamentosEmUso" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5: Estudos prévios -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Estudos prévios</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <span>JÁ FEZ ESSE EXAME ANTERIORMENTE?</span>
+                            <label><input type="radio" name="exameAnterior" value="Sim"> Sim</label>
+                            <label style="margin-left:16px;"><input type="radio" name="exameAnterior" value="Nao"> Não</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 50%;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>JÁ REALIZOU ENDOSCOPIA?</span>
+                            <label><input type="radio" name="endoscopia" value="Sim"> Sim</label>
+                            <label style="margin-left:16px;"><input type="radio" name="endoscopia" value="Nao"> Não</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 30%;">
+                            <br>
+                            <span class="ml-2">NO IMEB?</span>
+                            <label><input type="radio" name="endoscopiaImeb" value="Sim"> Sim</label>
+                            <label style="margin-left:16px;"><input type="radio" name="endoscopiaImeb" value="Nao"> Não</label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <span>ALGUM OUTRO EXAME PARA PESQUISA DO ESVAZIAMENTO GÁSTRICO?</span>
+                            <label><input type="radio" name="outroExameGastrico" value="Sim"> Sim</label>
+                            <label style="margin-left:16px;"><input type="radio" name="outroExameGastrico" value="Nao"> Não</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Há quanto tempo?" style="width: 50%;">
+                        </div>
+                        <div class="alert alert-warning mt-3" role="alert">
+                            Favor fornecer estudos prévios para que possamos tirar cópias dos laudos, isso poderá ajudar na interpretação das imagens.
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="text-center mb-4">
+                    <span id="AlertaGeracao"></span>
+                    <button id="gerarPDF" onclick="gerarPDF()" class="btn btn-success">Gerar PDF</button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">São Marcos Triagem &copy; 2025. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

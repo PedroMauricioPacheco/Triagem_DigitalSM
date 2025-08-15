@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de Cintilografia Miocárdica</title>
+    <link rel="icon" type="image/png" href="../../Imagens/IconeSaoMarcos.jpeg">
+    <script src="../../bootstrap-4.5.3-dist/jquery-3.7.1.slim.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fontawesome-free-7.0.0-web/css/all.min.css">
+    <script src="../../bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script src="../../scripts/app.js"></script>
+    <style>
+        @media (max-width: 767px) {
+            .form-row > .form-group {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .card-header {
+                font-size: 1.1rem;
+            }
+            .form-control-inline {
+                width: 100% !important;
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="cabeçalho shadow-sm">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <a class="navbar-brand d-flex align-items-center" href="../../../index.html">
+                <img src="../../Imagens/IconeSaoMarcos.jpeg" alt="Logo São Marcos" class="logo-header mr-3">
+                <span class="brand-title ml-2">São Marcos Triagem</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../Pages/MedicinaNuclear.html"><i class="fa-solid fa-arrow-left"></i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link custom-link" href="../../../index.html">Início</a>
+                    </li>
+                    <li>
+                        <a class="nav-link custom-link" href="../../Pages/DuvidasSugestoes.html">Dúvidas ou sugestões</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-5">
+            <h1 class="text-center mb-3">QUESTIONÁRIO DE CINTILOGRAFIA MIOCÁRDICA</h1>
+            <form>
+                <!-- Card 1: Informações do paciente -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Informações do paciente</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="nomePaciente">Nome:</label>
+                            <input type="text" class="form-control" id="nomePaciente" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="sexoPaciente">Sexo</label>
+                                <select class="form-control" id="sexoPaciente" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="idadePaciente">Idade</label>
+                                <input type="number" class="form-control" id="idadePaciente" required>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="pesoPaciente">Peso (kg)</label>
+                                <input type="number" class="form-control" id="pesoPaciente" step="0.1">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="alturaPaciente">Altura (cm)</label>
+                                <input type="number" class="form-control" id="alturaPaciente" step="0.1">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="dataTriagem">Data do Exame</label>
+                                <input type="date" class="form-control" id="dataTriagem" required>
+                            </div>
+                        </div>
+                        <div class="alert alert-info mt-2" role="alert">
+                            Para melhor atendê-lo e garantir a segurança na realização do seu exame, solicitamos o preenchimento dos dados abaixo.<br><br>
+                            Informamos que este exame, na fase de stress, tem risco comparável ao da realização de um teste ergométrico ou de uma atividade física vigorosa.<br><br>
+                            Quanto ao material usado no exame, o nível de radiação é relativamente baixo (calculado pelo peso do paciente) e não provoca reação alérgica.
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2: Motivo do exame -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Motivo de realização do exame</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoControle">
+                            <label class="form-check-label" for="motivoControle">Controle</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoCheckup">
+                            <label class="form-check-label" for="motivoCheckup">Check-up</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoDorPeito">
+                            <label class="form-check-label" for="motivoDorPeito">Dor no peito</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoPalpitacoes">
+                            <label class="form-check-label" for="motivoPalpitacoes">Palpitações</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoCansaco">
+                            <label class="form-check-label" for="motivoCansaco">Cansaço/falta de ar</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoPericia">
+                            <label class="form-check-label" for="motivoPericia">Perícia médica</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoTesteEsforco">
+                            <label class="form-check-label" for="motivoTesteEsforco">Teste de esforço alterado</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="motivoOutro">
+                            <label class="form-check-label" for="motivoOutro">Outro motivo</label>
+                            <input type="text" class="form-control-inline ml-2" placeholder="Qual?" style="width: 60%;">
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3: Questionário clínico -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Questionário clínico</strong>
+                    </div>
+                    <div class="card-body">
+                            <div class="form-group">
+                                <label>Tem hipertensão arterial:</label>
+                                <input type="radio" name="hipertensao" value="Sim"> Sim
+                                <input type="radio" name="hipertensao" value="Nao" style="margin-left:16px;"> Não
+                            </div>
+                            <div class="form-group">
+                                <label>Diabetes Mellitus:</label>
+                                <input type="radio" name="diabetes" value="Sim"> Sim
+                                <input type="radio" name="diabetes" value="Nao" style="margin-left:16px;"> Não
+                            </div>
+                            <div class="form-group">
+                                <label>Pratica atividade física regular:</label>
+                                <input type="radio" name="atividadeFisica" value="Sim"> Sim
+                                <input type="radio" name="atividadeFisica" value="Nao" style="margin-left:16px;"> Não
+                            </div>
+                            <div class="form-group">
+                                <label>STRESS:</label>
+                                <input type="radio" name="stress" value="Sim"> Sim
+                                <input type="radio" name="stress" value="Nao" style="margin-left:16px;"> Não
+                            </div>
+                            <div class="form-group">
+                                <label>Colesterol aumentado:</label>
+                                <input type="radio" name="colesterol" value="Sim"> Sim
+                                <input type="radio" name="colesterol" value="Nao" style="margin-left:16px;"> Não
+                            </div>
+                            <div class="form-group">
+                                <label>Triglicerídeo aumentado:</label>
+                                <input type="radio" name="triglicerideos" value="Sim"> Sim
+                                <input type="radio" name="triglicerideos" value="Nao" style="margin-left:16px;"> Não
+                            </div>
+                            <div class="form-group">
+                                <label>Fumante:</label>
+                                <input type="radio" name="fumante" value="Sim"> Sim
+                                <input type="radio" name="fumante" value="Nao" style="margin-left:16px;"> Não
+                                <input type="radio" name="fumante" value="Ex-tabagista" style="margin-left:16px;"> Ex-tabagista
+                            </div>
+                            <div class="form-group">
+                                <label>Algum familiar já teve infarto ou fez cirurgia cardíaca:</label>
+                                <input type="radio" name="familiarInfarto" value="Sim"> Sim
+                                <input type="radio" name="familiarInfarto" value="Nao" style="margin-left:16px;"> Não
+                            </div>
+                            <div class="form-group">
+                                <label>Você já teve infarto:</label>
+                                <input type="radio" name="infarto" value="Sim"> Sim
+                                <input type="radio" name="infarto" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Quando?" style="width: 40%;">
+                            </div>
+                            <div class="form-group">
+                                <label>Fez cirurgia de revascularização:</label>
+                                <input type="radio" name="revascularizacao" value="Sim"> Sim
+                                <input type="radio" name="revascularizacao" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Quando?" style="width: 40%;">
+                            </div>
+                            <div class="form-group">
+                                <label>Fez angioplastia (Stent):</label>
+                                <input type="radio" name="angioplastia" value="Sim"> Sim
+                                <input type="radio" name="angioplastia" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Quando?" style="width: 40%;">
+                            </div>
+                            <div class="form-group">
+                                <label>Tem asma:</label>
+                                <input type="radio" name="asma" value="Sim"> Sim
+                                <input type="radio" name="asma" value="Nao" style="margin-left:16px;"> Não
+                            </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Alergia a algum medicamento:</label>
+                                <input type="radio" name="alergiaMedicamento" value="Sim"> Sim
+                                <input type="radio" name="alergiaMedicamento" value="Nao" style="margin-left:16px;"> Não
+                                <input type="text" class="form-control-inline ml-2" placeholder="Se sim, qual?" style="width: 60%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4: Medicamentos -->
+                <div class="card mb-4 border-success">
+                    <div class="card-header bg-lime text-black">
+                        <strong>Medicamentos em uso</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>MEDICAMENTOS EM USO:</label>
+                            <input type="radio" name="medicamentosUso" value="Sim"> Sim
+                            <input type="radio" name="medicamentosUso" value="Nao" style="margin-left:16px;"> Não
+                        </div>
+                        <div class="form-group">
+                            <label for="quaisMedicamentos">Se sim, quais?</label>
+                            <textarea class="form-control" id="quaisMedicamentos" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="text-center mb-4">
+                    <span id="AlertaGeracao"></span>
+                    <button id="gerarPDF" onclick="gerarPDF()" class="btn btn-success">Gerar PDF</button>
+        </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">São Marcos Triagem &copy; 2025. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

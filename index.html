@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>São Marcos Triagem</title>
+    <link rel="icon" type="image/png" href="src/Imagens/IconeSaoMarcos.jpeg">
+    <link rel="stylesheet" href="src/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <script src="src/bootstrap-4.5.3-dist/jquery-3.7.1.slim.min.js"></script>
+    <script src="src/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="src/styles/main.css">
+    <script src="src/scripts/app.js"></script>
+</head>
+<body class="index-page">
+    <header class="cabeçalho shadow-sm">
+        <nav class="navbar navbar-expand-lg custom-navbar" style="background: #e8f5e9;">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="src/Imagens/IconeSaoMarcosSemFundo.png" alt="Logo São Marcos" class="logo-header mr-3">
+                <span class="brand-title ml-2">São Marcos Triagem</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li>
+                        <a class="nav-link custom-link" href="src/Pages/DuvidasSugestoes.html">
+                            <i class="fas fa-question-circle mr-1"></i> Dúvidas ou sugestões
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container d-flex flex-column align-items-center justify-content-center main-content">
+            <h1 class="display-4 mb-3 mt-2 font-weight-bold text-header">
+                <i class="fas fa-notes-medical mr-2 text-success"></i>
+                Anamnese Digital
+            </h1>
+            <p class="lead mb-4 text-secondary">Selecione qual tipo de anamnese deseja preencher:</p>
+            <div class="d-flex flex-wrap justify-content-center main-btn-group">
+                <a href="src/Pages/Densitometrias.html" class="btn btn-lg btn-success custom-btn mb-3">
+                    <i class="fas fa-bone"></i> Densitometria
+                </a>
+                <a href="src/Pages/Mamografias.html" class="btn btn-lg btn-success custom-btn mb-3">
+                    <i class="fas fa-ribbon"></i> Mamografia
+                </a>
+                <a href="src/Pages/Ressonancia.html" class="btn btn-lg btn-success custom-btn mb-3">
+                    <i class="fas fa-brain"></i> Ressonância
+                </a>
+                <a href="src/Pages/MedicinaNuclear.html" class="btn btn-lg btn-success custom-btn mb-3">
+                    <i class="fas fa-flask"></i> Medicina Nuclear
+                </a>
+                <a href="src/Pages/Tomografias.html" class="btn btn-lg btn-success custom-btn mb-3">
+                    <i class="fas fa-x-ray"></i> Tomografias
+                </a>
+                <a href="src/forms/TermosConsentimento.html" class="btn btn-lg btn-success custom-btn mb-3">
+                    <i class="fas fa-x-ray"></i>Termos de Consentimento
+                </a>
+                <div class="section-divider"></div>
+
+            <!-- Seção de Fichas Técnicas -->
+            <div class="text-center">
+                <h5 class="mb-3 text-info font-weight-bold">
+                    <i class="fas fa-file-medical-alt mr-2"></i>Termos de consentimento
+                </h5>
+                <p class="text-muted mb-3">Documentos que necessitam da assinatura do cliente</p>
+                
+                <div class="d-flex flex-wrap justify-content-center">
+                    <a href="src/forms/TermosConsentimento/TCLE_CintCerebral.html" class="btn btn-info custom-btn ficha-tecnica-btn mb-2">
+                        <i class="fas fa-atom mr-2"></i>TCLE Cint Cerebral
+                        </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer text-center">
+        <small>
+            Triagem Digital - Versão Beta | Build: 2025-08-08 
+        </small>
+    </footer>
+</body>
+</html>
