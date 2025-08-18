@@ -16,84 +16,119 @@
             font-family: 'Times New Roman', serif;
             line-height: 1.6;
             color: #333;
+            font-size: 15px;
         }
         .documento {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 25px;
             background: white;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
         .cabecalho-documento {
             text-align: center;
             border-bottom: 2px solid #333;
-            padding-bottom: 15px;
+            padding-bottom: 18px;
             margin-bottom: 25px;
         }
         .titulo-principal {
-            font-size: 18px;
+            font-size: 22px;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
         .subtitulo {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
         }
         .paragrafo {
             text-align: justify;
-            margin-bottom: 15px;
-            text-indent: 30px;
+            margin-bottom: 14px;
+            text-indent: 40px;
+            font-size: 17px;
+            line-height: 1.4;
         }
         .secao-titulo {
             font-weight: bold;
             text-decoration: underline;
-            margin-top: 20px;
+            margin-top: 18px;
             margin-bottom: 10px;
+            font-size: 15px;
         }
         .assinaturas {
-            margin-top: 40px;
-            page-break-before: always;
+            margin-top: 20px;
             page-break-inside: avoid;
         }
+        
+        /* Assinatura do Paciente - Mesma página */
+        .assinatura-paciente {
+            page-break-inside: avoid;
+            margin-bottom: 30px;
+        }
+        
+        /* Assinatura do Responsável - Nova página */
+        .assinatura-responsavel {
+            page-break-before: always;
+            page-break-inside: avoid;
+            margin-bottom: 30px;
+        }
+        
+        /* Assinatura do Médico - Continua na página do responsável */
+        .assinatura-medico {
+            page-break-inside: avoid;
+            margin-bottom: 20px;
+        }
+        
         .linha-assinatura {
             border-bottom: 1px solid #333;
-            width: 200px;
+            width: 280px;
             display: inline-block;
-            margin: 5px 10px;
+            margin: 7px 12px;
         }
         .campo-preenchimento {
             border-bottom: 1px solid #333;
-            min-width: 200px;
+            min-width: 280px;
             display: inline-block;
-            margin: 0 5px;
+            margin: 0 6px;
+            font-size: 15px;
+            padding: 2px 0;
+        }
+        .input-borda-visivel {
+            border: 1px solid #333 !important;
+            border-radius: 4px;
+            padding: 7px 10px;
+            margin: 6px;
+            background: white;
+            font-size: 15px;
         }
         .data-local {
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            font-size: 15px;
         }
         .observacao-final {
             margin-top: 20px;
             font-weight: bold;
             text-align: center;
+            font-size: 15px;
         }
         .canvas-assinatura-pequeno {
             border: 2px solid #333;
             border-radius: 5px;
-            margin: 10px 0;
+            margin: 8px 0;
             background: white;
             display: block;
             cursor: pointer;
             width: 100%;
-            height: 100px; /* Aumentado de 80px para 100px */
+            height: 85px;
         }
         .btn-canvas {
-            margin: 5px;
-            font-size: 12px;
-            padding: 5px 10px;
+            margin: 6px;
+            font-size: 13px;
+            padding: 6px 12px;
         }
         .canvas-container {
             text-align: center;
-            margin: 20px 0;
+            margin: 15px 0;
         }
         
         /* Modal de assinatura */
@@ -105,7 +140,7 @@
             height: 100%;
         }
         .signature-modal .modal-body {
-            padding: 20px;
+            padding: 25px;
             height: calc(100% - 120px);
         }
         .canvas-assinatura-grande {
@@ -114,21 +149,298 @@
             background: white;
             cursor: crosshair;
             width: 100%;
-            height: 400px;
+            height: 420px;
         }
         
+        .row.mb-4 {
+            margin-bottom: 1.5rem !important;
+        }
+        
+        /* CSS DE IMPRESSÃO */
         @media print {
-            .no-print { display: none !important; }
-            body { font-size: 12px; }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            @page {
+                size: A4;
+                margin: 1.5cm 2cm 1.5cm 2cm !important;
+            }
+            
+            .no-print { 
+                display: none !important; 
+            }
+            
+            body { 
+                font-family: 'Times New Roman', serif !important;
+                font-size: 14px !important;
+                line-height: 1.3 !important;
+                color: #000 !important;
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .documento {
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                background: white !important;
+            }
+            
+            .cabecalho-documento {
+                text-align: center !important;
+                border-bottom: 2px solid #000 !important;
+                padding-bottom: 12px !important;
+                margin-bottom: 15px !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .titulo-principal {
+                font-size: 18px !important;
+                font-weight: bold !important;
+                margin-bottom: 6px !important;
+                color: #000 !important;
+            }
+            
+            .subtitulo {
+                font-size: 16px !important;
+                font-weight: bold !important;
+                color: #000 !important;
+            }
+            
+            .paragrafo {
+                text-align: justify !important;
+                margin-bottom: 8px !important;
+                text-indent: 35px !important;
+                font-size: 14px !important;
+                line-height: 1.3 !important;
+                color: #000 !important;
+                orphans: 3 !important;
+                widows: 3 !important;
+            }
+            
+            .secao-titulo {
+                font-weight: bold !important;
+                text-decoration: underline !important;
+                margin-top: 12px !important;
+                margin-bottom: 6px !important;
+                font-size: 14px !important;
+                color: #000 !important;
+                page-break-after: avoid !important;
+            }
+            
+            .assinaturas {
+                margin-top: 15px !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .assinatura-paciente {
+                page-break-inside: avoid !important;
+                margin-bottom: 20px !important;
+            }
+            
+            .assinatura-responsavel {
+                page-break-before: always !important;
+                page-break-inside: avoid !important;
+                margin-bottom: 20px !important;
+            }
+            
+            .assinatura-medico {
+                page-break-inside: avoid !important;
+                margin-bottom: 15px !important;
+            }
+            
             .canvas-assinatura-pequeno { 
-                border: 1px solid #333; 
-                height: 80px; /* Aumentado de 60px para 80px na impressão */
+                border: 2px solid #000 !important;
+                border-radius: 3px !important;
+                height: 70px !important;
+                width: 100% !important;
+                background: white !important;
+                display: block !important;
+                margin: 6px 0 !important;
+            }
+            
+            .input-borda-visivel {
+                border: 1px solid #000 !important;
+                border-radius: 3px !important;
+                padding: 4px 6px !important;
+                margin: 2px !important;
+                background: white !important;
+                font-size: 13px !important;
+                color: #000 !important;
+            }
+            
+            .campo-preenchimento {
+                border-bottom: 1px solid #000 !important;
+                font-size: 14px !important;
+                color: #000 !important;
+                background: white !important;
+            }
+            
+            .data-local {
+                margin: 15px 0 !important;
+                font-size: 14px !important;
+                color: #000 !important;
+                text-align: center !important;
+            }
+            
+            .observacao-final {
+                margin-top: 15px !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                font-size: 14px !important;
+                color: #000 !important;
+            }
+            
+            .linha-assinatura {
+                border-bottom: 1px solid #000 !important;
+                width: 250px !important;
+                display: inline-block !important;
+                margin: 4px 8px !important;
+            }
+            
+            .row.mb-4 {
+                margin-bottom: 1rem !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .canvas-container {
+                text-align: center !important;
+                margin: 10px 0 !important;
+            }
+            
+            .text-center {
+                text-align: center !important;
+            }
+            
+            .mb-2 {
+                margin-bottom: 6px !important;
+            }
+            
+            .mt-3 {
+                margin-top: 10px !important;
+            }
+            
+            strong {
+                font-weight: bold !important;
+                color: #000 !important;
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+                page-break-after: avoid !important;
+            }
+            
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            
+            input {
+                -webkit-appearance: none !important;
+                -moz-appearance: none !important;
+                appearance: none !important;
+                background: white !important;
+                color: #000 !important;
             }
         }
+        
+        /* RESPONSIVO MOBILE */
         @media (max-width: 768px) {
-            .documento { padding: 10px; }
-            .linha-assinatura { width: 150px; }
-            .canvas-assinatura-grande { height: 300px; }
+            .documento { 
+                padding: 15px !important;
+                max-width: 100% !important;
+                margin: 10px !important;
+            }
+            
+            body {
+                font-size: 14px !important;
+            }
+            
+            .paragrafo {
+                font-size: 14px !important;
+                text-indent: 20px !important;
+                margin-bottom: 12px !important;
+            }
+            
+            .titulo-principal {
+                font-size: 18px !important;
+            }
+            
+            .subtitulo {
+                font-size: 16px !important;
+            }
+            
+            .campo-preenchimento {
+                min-width: 150px !important;
+                width: 40% !important;
+            }
+            
+            .input-borda-visivel {
+                width: 90% !important;
+                max-width: 250px !important;
+                font-size: 14px !important;
+                padding: 6px 8px !important;
+            }
+            
+            .linha-assinatura { 
+                width: 80% !important;
+                max-width: 200px !important;
+            }
+            
+            .canvas-assinatura-pequeno {
+                height: 80px !important;
+            }
+            
+            .canvas-assinatura-grande { 
+                height: 300px !important;
+            }
+            
+            .data-local {
+                font-size: 14px !important;
+            }
+            
+            .canvas-container {
+                margin: 10px 0 !important;
+            }
+            
+            .btn-canvas {
+                font-size: 12px !important;
+                padding: 4px 8px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .documento {
+                padding: 10px !important;
+                margin: 5px !important;
+            }
+            
+            .paragrafo {
+                font-size: 13px !important;
+                text-indent: 15px !important;
+            }
+            
+            .titulo-principal {
+                font-size: 16px !important;
+            }
+            
+            .subtitulo {
+                font-size: 14px !important;
+            }
+            
+            .input-borda-visivel {
+                width: 95% !important;
+                font-size: 13px !important;
+            }
+            
+            .canvas-assinatura-pequeno {
+                height: 70px !important;
+            }
         }
     </style>
 </head>
@@ -169,9 +481,9 @@
             <form>
                 <div class="paragrafo">
                     Por este instrumento particular o(a) paciente 
-                    <input type="text" class="campo-preenchimento border-0" style="width: 300px;">
+                    <input type="text" class="campo-preenchimento border-0" style="width: 40%;">
                     ou seu responsável, Sr.(a) 
-                    <input type="text" class="campo-preenchimento border-0" style="width: 250px;">, 
+                    <input type="text" class="campo-preenchimento border-0" style="width: 37%;">, 
                     declara, para todos os fins legais, especialmente do disposto no artigo 6º, III e no artigo 39, VI, da Lei 8.078/90 que dá plena autorização ao (à) médico(a) assistente, para proceder as investigações necessárias ao diagnóstico do seu estado de saúde, bem como executar o procedimento designado <strong>"Cintilografia Cerebral"</strong>, e todos os procedimentos que o incluem, inclusive anestesias ou outras condutas médicas que tal procedimento médico possa requerer, podendo o referido profissional valer-se do auxílio de outros profissionais de saúde.
                 </div>
 
@@ -229,90 +541,98 @@
                     Para que produza os efeitos legais assino o presente termo.
                 </div>
 
-                <!-- PÁGINA 3 - ASSINATURAS -->
                 <div class="assinaturas">
-                    <div class="cabecalho-documento">
-                        <div class="titulo-principal">Termo de Consentimento Livre e Esclarecido</div>
-                        <div class="subtitulo">Cintilografia Cerebral - Página de Assinaturas</div>
-                    </div>
-
                     <div class="data-local text-center">
                         Joinville (SC) 
-                        <input type="number" class="campo-preenchimento border-0 text-center" style="width: 40px;" min="1" max="31"> 
+                        <input type="number" class="form-control-inline text-center" style="width: 10%;" > 
                         de 
-                        <input type="text" class="campo-preenchimento border-0 text-center" style="width: 120px;"> 
+                        <input type="text" class="form-control-inline text-center" style="width: 15%;"> 
                         de 
-                        <input type="number" class="campo-preenchimento border-0 text-center" style="width: 80px;" min="2024" max="2030">.
+                        <input type="number" class="form-control-inline text-center" style="width: 10%;" >.
                     </div>
 
-                    <!-- Assinatura do Paciente -->
-                    <div class="row mb-4">
-                        <div class="col-12">
-                            <div class="text-center">
-                                <strong>Assinatura do (a) paciente</strong>
+                    <!-- ASSINATURA DO PACIENTE -->
+                    <div class="assinatura-paciente">
+                        <div class="text-center">
+                            <strong>Assinatura do (a) paciente</strong>
+                        </div>
+                        <div class="canvas-container">
+                            <canvas id="canvasPaciente" class="canvas-assinatura-pequeno" width="600" height="120" onclick="abrirModalAssinatura('canvasPaciente', 'Assinatura do Paciente')"></canvas>
+                            <div class="no-print">
+                                <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasPaciente')">
+                                    <i class="fas fa-eraser"></i> Limpar
+                                </button>
                             </div>
-                            <div class="canvas-container">
-                                <canvas id="canvasPaciente" class="canvas-assinatura-pequeno" width="600" height="150" onclick="abrirModalAssinatura('canvasPaciente', 'Assinatura do Paciente')"></canvas>
-                                <div class="no-print">
-                                    <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasPaciente')">
-                                        <i class="fas fa-eraser"></i> Limpar
-                                    </button>
-                                </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <div class="mb-2">
+                                RG Nº <input type="text" class="form-control-inline" style="width: 200px;" placeholder="Digite o RG">
                             </div>
-                            <div class="text-center mt-3">
-                                RG Nº <input type="text" class="campo-preenchimento border-0" style="width: 200px;">
-                                <div class="linha-assinatura mt-3 mb-2 d-block mx-auto"></div>
-                                <div><strong>NOME</strong></div>
+                            <div class="mb-2">
+                                <input type="text" class="form-control-inline" style="width: 35%;" placeholder="Digite o nome completo">
                             </div>
+                            <div class="linha-assinatura mt-2 mb-2 d-block mx-auto"></div>
+                            <div><strong>NOME</strong></div>
                         </div>
                     </div>
 
-                    <!-- Assinatura do Responsável -->
-                    <div class="row mb-4">
-                        <div class="col-12">
-                            <div class="text-center">
-                                <strong>Assinatura do (a) responsável pelo (a) paciente</strong>
+                    <!-- ASSINATURA DO RESPONSÁVEL -->
+                    <div class="assinatura-responsavel">
+                        <div class="cabecalho-documento">
+                            <div class="titulo-principal">Termo de Consentimento Livre e Esclarecido</div>
+                            <div class="subtitulo">Cintilografia Cerebral - Página de Assinaturas</div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <strong>Assinatura do (a) responsável pelo (a) paciente</strong>
+                        </div>
+                        <div class="canvas-container">
+                            <canvas id="canvasResponsavel" class="canvas-assinatura-pequeno" width="600" height="120" onclick="abrirModalAssinatura('canvasResponsavel', 'Assinatura do Responsável')"></canvas>
+                            <div class="no-print">
+                                <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasResponsavel')">
+                                    <i class="fas fa-eraser"></i> Limpar
+                                </button>
                             </div>
-                            <div class="canvas-container">
-                                <canvas id="canvasResponsavel" class="canvas-assinatura-pequeno" width="600" height="150" onclick="abrirModalAssinatura('canvasResponsavel', 'Assinatura do Responsável')"></canvas>
-                                <div class="no-print">
-                                    <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasResponsavel')">
-                                        <i class="fas fa-eraser"></i> Limpar
-                                    </button>
-                                </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <div class="mb-2">
+                                RG Nº <input type="text" class="input-borda-visivel" style="width: 200px;" placeholder="Digite o RG">
                             </div>
-                            <div class="text-center mt-3">
-                                RG Nº <input type="text" class="campo-preenchimento border-0" style="width: 200px;">
-                                <div class="linha-assinatura mt-3 mb-2 d-block mx-auto"></div>
-                                <div><strong>NOME</strong></div>
+                            <div class="mb-2">
+                                <input type="text" class="input-borda-visivel" style="width: 300px;" placeholder="Digite o nome completo">
                             </div>
+                            <div class="linha-assinatura mt-2 mb-2 d-block mx-auto"></div>
+                            <div><strong>NOME</strong></div>
                         </div>
                     </div>
 
-                    <!-- Assinatura do Médico -->
-                    <div class="row mb-4">
-                        <div class="col-12">
-                            <div class="text-center">
-                                <strong>Assinatura do (a) médico (a)</strong>
-                            </div>
-                            <div class="canvas-container">
-                                <canvas id="canvasMedico" class="canvas-assinatura-pequeno" width="600" height="150" onclick="abrirModalAssinatura('canvasMedico', 'Assinatura do Médico')"></canvas>
-                                <div class="no-print">
-                                    <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasMedico')">
-                                        <i class="fas fa-eraser"></i> Limpar
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="text-center mt-3">
-                                CRM: <input type="text" class="campo-preenchimento border-0" style="width: 200px;">
-                                <div class="linha-assinatura mt-3 mb-2 d-block mx-auto"></div>
-                                <div><strong>NOME</strong></div>
+                    <!-- ASSINATURA DO MÉDICO -->
+                    <div class="assinatura-medico">
+                        <div class="text-center">
+                            <strong>Assinatura do (a) médico (a)</strong>
+                        </div>
+                        <div class="canvas-container">
+                            <canvas id="canvasMedico" class="canvas-assinatura-pequeno" width="600" height="120" onclick="abrirModalAssinatura('canvasMedico', 'Assinatura do Médico')"></canvas>
+                            <div class="no-print">
+                                <button type="button" class="btn btn-sm btn-secondary btn-canvas" onclick="limparCanvas('canvasMedico')">
+                                    <i class="fas fa-eraser"></i> Limpar
+                                </button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="observacao-final">
-                        <strong>OBS: Obrigatório rubricar todas as vias.</strong>
+                        <div class="text-center mt-3">
+                            <div class="mb-2">
+                                CRM: <input type="text" class="input-borda-visivel" style="width: 200px;" placeholder="Digite o CRM">
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" class="input-borda-visivel" style="width: 300px;" placeholder="Digite o nome completo">
+                            </div>
+                            <div class="linha-assinatura mt-2 mb-2 d-block mx-auto"></div>
+                            <div><strong>NOME</strong></div>
+                        </div>
+                        
+                        <div class="observacao-final">
+                            <strong>OBS: Obrigatório rubricar todas as vias.</strong>
+                        </div>
                     </div>
                 </div>
 
